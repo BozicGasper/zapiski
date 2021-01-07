@@ -191,4 +191,99 @@ Ločimo dva načina zapisa imen polj, in sicer
     ...
   }
   ```
- 
+#### Ostranjevanje zbirk *(paginacija)*
+Način podajanja parametrov v URL
+```
+GET https://api.ts.si/razmerja?offset=50&limit=25
+```
+V namen sledenja offseta se v glavi vrnjene zahteve doda polje **X-Total-Count**.
+Lahko pa se uporabi naprimer tudi metoda count na samem viru: **GET /razmerja/count**.
+#### Povezovanje virov
+Vsak dostopen vir ima unikaten URL, kar pomeni, da ga lahko nastavimo kot identifikator pri povezovanju virov
+```json
+GET https://api.ts.si/razmerja/1223
+{
+  "id": 1223,
+  "naziv": "Razmerje2",
+  "oznaka": "S2",
+  "sektor": {
+    "id": 123123
+    "link": "https://api.skladiapp.si/sektorji/123123"
+  },
+  "tveganje": 2
+}
+```
+v primerju verzioniranja je to slaba integracija, med drugim odjemalec potrebuje tudi več klicov na strežnik, da dobi vse podatke o določenem viru.
+
+API lahko omogoči razširjanje določenih delov povezanih virov. To lahko dosežemo z naštevanjem parametrov vira v URL parametru "**expand**"
+```json
+GET https://api.ts.si/razmerja/1223?expand=sektor
+{
+  "id": 1223,
+  "naziv": "Razmerje2",
+  "oznaka": "S2",
+  "sektor": {
+    "id": 123123
+    "link": "https://api.ts.si/sektorji/123123",
+    "naziv": "Razviti trgi",
+    "tveganje": 2,
+    ...
+  },
+  "tveganje": 4
+}
+```
+### Omejevanje dostopa
+Dostop želimo v določenih primerih omejiti, da preprečimo možne zlorabe sistema. To lahko storimo z omejevanjem posameznih odjemalcev, omejitvijo števila zahtevkov na časovno enoto...
+
+V primeru prekoračitve postavljene omejitve se odjemalcu vrne HTTP status **429** - "Too Many Requests"
+
+Skladno z zgornjim se odjemalca sproti ob vsakem zahtevku obvesti o omejitvah s pomočjo polj v glavi odgovora
+- **X-Rate-Limit-Limit** - št. dovoljenih zahtevkov v trenutni časovni enoti
+- **X-Rate-Limit-Remaining** - št. preostalih zahtevkov v trenutni časovni enoti
+- **X-Rate-Limit-Reset** - št. preostalih sekund v trenutni častovni enoti
+### Napake
+Dobra praksa je, da so informacije o napakah čim bolj **informativne**. Moramo podati dovolj informacij, da lahko odjemalec pravilno odreagira, hkrati pa moremo paziti, da ne podamo *preveč* informacij, ki bi lahko morebitnemu napadalcu posredovale občutljive informacije.
+### Varnost
+REST je stateless, kar pomei, da se **izogiba sejam**, če je le to mogoče
+
+Avtentikacija je priporočljiva preko obstoječega protokola
+- Vedno SSL
+- HTTP Basic avtentikacija
+- OAuth2
+- Zunanji ali notranji ponudnik
+
+V posebnih primerih lahko manufakturiramo tudi lastno avtentikacijsko shemo
+### HTTP kode
+seznam "uporabnih" HTTP kod za uspešno procesiranje:
+- **200 OK** - Odgovor na uspešno akcijo
+- **201 Created** - Odgovor na uspešno akcijo, ki rezultira v kreiranje vira.
+- **204 No Content** - Odgovor na uspešno akcijo brez vsebine odgovora
+- **304 Not Modified** - Informacija odjemalcu, da drži aktualno medpomnjeno instanco
+
+seznam "uporabnih" HTTP kod za napake:
+- **400 Bad Request** - Zahteva je neustrezno oblikovana, vsebine ni mogoče razčleniti, podatki manjkajo...
+- **401 Unauthorized** - Avtentikacija uporabnika ni uspešna
+- **403 Forbidden** - Avtorizacija uporabnikda do vira ni uspešna
+- **404 Not Found** - Zahteva po viru, ki ne obstaja
+- **405 Method Not Allowed** - zahteva po HTTP metodi, ki uprabniku ni dovoljena
+- **410 Gone** - Vir na URL ne obstaja več *(uporabno za verzioniranje)*
+- **415 Unsupported Media Type** - Tip vsebine zahtee ni veljaven
+- **422 Unprocessable Entity** - Validacijska napaka
+- **429 Too Many Requests** - Zahteva zavrnjena zaradi preobrementive strežnika
+- **500 Internal Server Error** - Generalna napaka na strani strežnika
+
+### HTTP medpomnenje
+Uporabno, saj lahko odjemalcu po poizvedbu po viru, ki se ni spremenil, sporočimo, da je vir, do katerega želi dostopati, še vedno enak kot je bil prej, torej ni potrebno prenašanje nikakršnih koli podatkov. Če je vir po katerem sprašuje odjemalec od zadnje zahteve ostal nespremenjen, bo strežnik vrnil odgovor **304 Not Modified**.
+
+### Kompresiranje vsebine
+Podatke, ki se prenašajo preko HTTP zahtev lahko kompresiramo z različnimi algoritmi, ki jih morata za uspešno kompresijo in dekompresijo podpirati odjemalec in strežnik. Ta funckionalnost je opcijska, a zelo priročna, saj z njo pridobimo na hitrosti prenosa.
+
+V glavi lahko definiramo kompresijski algoritem, ki ga želimo uporabljati.
+```
+Content-Encoding: gzip
+```
+Definiramo lahko tudi sprejemljive tipe, s katerimi bomo kompresirali.
+```
+Accept-Encoding: gzip, deflate
+```
+## Storitve REST v Javi
