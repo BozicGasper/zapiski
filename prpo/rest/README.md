@@ -1,7 +1,7 @@
 # REST storitve
 
 **Re**presentational **S**tate **T**ransfer predstavlja *arhitekturni stil* ter temelji na *abstrakciji* arhitekturnih elemenotv znotraj distribuiranih hipermedijskih sistemov.
-Predstavlja način komunikacije med odjemalcem in strežnikom. Ponujaja *pomenljive*,*preproste* in *naslovljive* in je **brez stanja**.
+Predstavlja način komunikacije med odjemalcem in strežnikom. Ponujaja **pomenljive**,**preproste** in **naslovljive** vire in je **brez stanja**.
 
 Prednosti REST:
 - Skalabilnost
