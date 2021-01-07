@@ -17,48 +17,48 @@ Prednosti REST:
 
 V principu naj bi odjemalec komuniciral z aplikacijo preko omrežja *zgolj preko hipermedija*, ki ga dinamično streže strežnik.
 
-V realnosti si *odjemalec* in *strežnik* izmenjujeta **reprezentacijo virov**, kjer je **oblika** same reprezentacije pomembna. Vir je v postopku izmenjave **enolično naslovljen**, njegova reprezentacija pa odjemalczadošča za potrebno manipulacijo** le tega. Reprezentacije sporočil so **samoopisne**, kjer sporočila vsebujejo vsa potrebna **navodila za procesiranje**
+V realnosti si *odjemalec* in *strežnik* izmenjujeta **reprezentacijo virov**, kjer je **oblika** same reprezentacije pomembna. Vir je v postopku izmenjave **enolično naslovljen**, njegova reprezentacija pa odjemalcu zadošča za potrebno **manipulacijo** le tega. Reprezentacije sporočil so **samoopisne**, kjer sporočila vsebujejo vsa potrebna **navodila za procesiranje**.
 
 ## Oblikovanje RESTFUL storitev
-RESTful spletni API (RESTful spletna storitev) temelji na osvoni REST arhitekture in **HTTP** protokola. Podatki zapisani v *hipertekst* obliki in se prenašajo preko internetnega medija. 
+RESTful spletni API (RESTful spletna storitev) temelji na osvoni REST arhitekture in **HTTP** protokola. Podatki so zapisani v *hipertekst* obliki in se prenašajo preko internetnega medija. 
 
 ### Viri
 Oblikovanje virov je pomembno! Viri morajo biti oblikovani **enostavno** in **učinkovito**!
 
-Če je vir zbirke enak ```/razmerja```, potem naj bo vir instance iz te zbirke ```/razmerja/{instancaId}```.
+Če je vir zbirke določen kot ```/razmerja```, potem naj bo vir instance iz te zbirke določen kot ```/razmerja/{instancaId}```.
 
 Za določanje akcij na virih se uporabljajo standardne HTTP metode:
 - GET - *pomeni branje*
   > ```GET /razmerja``` vrne seznam razmerij
-  > ```GET /razmerja/{id}``` vrne razmerje, ki z podanim id-jem
+  > ```GET /razmerja/{id}``` vrne razmerje, s podanim id-jem
 - POST - *pomeni ustvarjanje novega vira*
-  > ```POST /razmerja``` z nekim predoločenim telesom zahteve ustvari novo razmerje
+  > ```POST /razmerja``` z dodanim telesom zahteve ustvari novo razmerje
 - PUT - *pomeni posodabljanje celotnega obstoječega vira*
-  > ```PUT /razmerja/{id}``` z ekim predoločenim telesom zahteve posodobi razmerje s podanim id-jem
+  > ```PUT /razmerja/{id}``` z dodanim telesom zahteve posodobi razmerje s podanim id-jem
 - DELETE - *pomeni brisanje/deaktiviranje*
   > ```DELETE /razmerja/{id}``` izbriše razmerje s podanim id-jem
 - HEAD - *pomeni branje HTTP zaglavja brez vsebine*
 - PATCH - *pomeni delno posodablanje obsotječega vira*
 
-Akcije, ki ne spadajo v standardne CRUD operacije lahko vključimo na več različnih načinov
-- restrukturiranje akcije, da jo predstavimo kot polje na viru
-- obravnavamo akcijo kot nek pod-vir
+Akcije, ki ne spadajo v standardne CRUD operacije lahko vključimo na več različnih načinov:
+- **restrukturiranje** akcije, da jo predstavimo kot polje na viru
+- obravnavamo akcijo kot nek **pod-vir**
   > ```POST /razmerja/242/skleni``` ali npr. ```POST /razmerja/242/prekini```
-- ustvarimo nov navidezni vir
+- ustvarimo nov **navidezni vir**
   > ```POST /iskanje```
 
 #### Odgovori na zahteve
 Na uspešno ```GET``` zahtevo se vrne odgovor s statusom **200** in telesom, ki vsebuje podatke.
 
-Na uspešno ```POST``` zahtevo se vrne odgovor s statusom **201** (in poljubno telesom, ki vsebuje podatke).
+Na uspešno ```POST``` zahtevo se vrne odgovor s statusom **201** (in poljubnim telesom, ki vsebuje podatke).
 
-Na uspešno ```PUT``` zahtevo se vrne odgovor s statusom **200** (in poljubno telesom, ki vsebuje podatke).
+Na uspešno ```PUT``` zahtevo se vrne odgovor s statusom **200** (in poljubnim telesom, ki vsebuje podatke).
 
 Na uspešno ```DELETE``` zahtevo se vrne odgovor s statusom **204(No Content)** brez telesa.
 
 ### Verzioniranje
-- Verzijo lahko izražamo preko poti API-ja
-  > *my.api.domain<b>/v1</b>/razmerja*
+- Verzijo lahko izražamo preko poti API-ja ("/v1")
+  > ```my.api.domain/v1/razmerja```
 - Verzioniramo lahko tudi s pomočjo MIME formata sporočila
   > ```Content-Type: application/si.ts.tipi.v1.razmerje+json``` ali ```Content-Type: application/si.ts.tipi.razmerje+json;v=1```
 - Verzioniranje je možno tudi s pomočjo poljubnega polja v HTTP glavi
@@ -130,7 +130,7 @@ Podamo lahko tudi header **Accept**, ki sporoči pošiljatelju/prejemniku, kater
 ```
 Accept: application/json,applicatio/xml,image/png,...
 ```
-Zgodi se lahko tudi, da je **format podan** kar **v URL naslovu**, v tem primeru ima tip podan v naslovu **večjo** prioriteto kot format podan v zagalvju
+Zgodi se lahko tudi, da je **format podan** kar **v URL naslovu**, v tem primeru ima tip podan v naslovu **večjo** **prioriteto** kot format podan v zagalvju
 > my.api.url/v1/entity/blabla.json <br> my.api.url/v1/entity/blabla.csv
 
 #### JSON ( JavaScript Object Notation ) - applicaton/json
@@ -237,22 +237,22 @@ Dostop želimo v določenih primerih omejiti, da preprečimo možne zlorabe sist
 
 V primeru prekoračitve postavljene omejitve se odjemalcu vrne HTTP status **429** - "Too Many Requests"
 
-Skladno z zgornjim se odjemalca sproti ob vsakem zahtevku obvesti o omejitvah s pomočjo polj v glavi odgovora
+Skladno z zgornjim se odjemalca sproti ob vsakem zahtevku obvesti o omejitvah s pomočjo polj v glavi odgovora:
 - **X-Rate-Limit-Limit** - št. dovoljenih zahtevkov v trenutni časovni enoti
 - **X-Rate-Limit-Remaining** - št. preostalih zahtevkov v trenutni časovni enoti
 - **X-Rate-Limit-Reset** - št. preostalih sekund v trenutni častovni enoti
 ### Napake
 Dobra praksa je, da so informacije o napakah čim bolj **informativne**. Moramo podati dovolj informacij, da lahko odjemalec pravilno odreagira, hkrati pa moremo paziti, da ne podamo *preveč* informacij, ki bi lahko morebitnemu napadalcu posredovale občutljive informacije.
 ### Varnost
-REST je stateless, kar pomei, da se **izogiba sejam**, če je le to mogoče
+REST je **stateless**, kar pomei, da se **izogiba sejam**, če je le to mogoče.
 
-Avtentikacija je priporočljiva preko obstoječega protokola
+Avtentikacija je priporočljiva preko obstoječih protokolov:
 - Vedno SSL
 - HTTP Basic avtentikacija
 - OAuth2
 - Zunanji ali notranji ponudnik
 
-V posebnih primerih lahko manufakturiramo tudi lastno avtentikacijsko shemo
+> V posebnih primerih lahko manufakturiramo tudi lastno avtentikacijsko shemo
 ### HTTP kode
 seznam "uporabnih" HTTP kod za uspešno procesiranje:
 - **200 OK** - Odgovor na uspešno akcijo
@@ -273,7 +273,7 @@ seznam "uporabnih" HTTP kod za napake:
 - **500 Internal Server Error** - Generalna napaka na strani strežnika
 
 ### HTTP medpomnenje
-Uporabno, saj lahko odjemalcu po poizvedbu po viru, ki se ni spremenil, sporočimo, da je vir, do katerega želi dostopati, še vedno enak kot je bil prej, torej ni potrebno prenašanje nikakršnih koli podatkov. Če je vir po katerem sprašuje odjemalec od zadnje zahteve ostal nespremenjen, bo strežnik vrnil odgovor **304 Not Modified**.
+Uporabno, saj lahko odjemalcu po poizvedbi po viru, ki se ni spremenil, sporočimo, da je vir, do katerega želi dostopati, še vedno enak kot je bil prej, torej ni potrebno prenašanje nikakršnih koli podatkov. Če je vir po katerem sprašuje odjemalec od zadnje zahteve ostal nespremenjen, bo strežnik vrnil odgovor **304 Not Modified**.
 
 ### Kompresiranje vsebine
 Podatke, ki se prenašajo preko HTTP zahtev lahko kompresiramo z različnimi algoritmi, ki jih morata za uspešno kompresijo in dekompresijo podpirati odjemalec in strežnik. Ta funckionalnost je opcijska, a zelo priročna, saj z njo pridobimo na hitrosti prenosa.
@@ -282,7 +282,7 @@ V glavi lahko definiramo kompresijski algoritem, ki ga želimo uporabljati.
 ```
 Content-Encoding: gzip
 ```
-Definiramo lahko tudi sprejemljive tipe, s katerimi bomo kompresirali.
+Definiramo lahko tudi sprejemljive tipe, s katerimi bomo dekompresirali.
 ```
 Accept-Encoding: gzip, deflate
 ```
@@ -522,7 +522,7 @@ z anotacijo **@Context** lahko vstavimo odvisnost v objekte tipov:
 - ```Configuration``` - konfiguracija strežnika / odjemalca
 
 ### Asinhrono izvajanje
-Sprošča niti, ki upravljajo s HTTP povezavami in povečuje efektivnost strežnika pri veliki količini povezav. Odjemalec časovnih razlik ne opazi
+Sprošča niti, ki upravljajo s HTTP povezavami in povečuje efektivnost strežnika pri veliki količini povezav medtem ko djemalec časovnih razlik ne opazi.
 
 Asihnrono izvajanje omogoča uprabo ```Promise``` vzorca in nudi podporo "*reactive*" stila programiranja.
 
