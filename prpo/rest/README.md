@@ -287,3 +287,332 @@ Definiramo lahko tudi sprejemljive tipe, s katerimi bomo kompresirali.
 Accept-Encoding: gzip, deflate
 ```
 ## Storitve REST v Javi
+
+REST storitve v **Javi** Implementiramo s pomočjo JAX-RS (Java API for RESTful Web Services) s trenutnimi implementacijami:
+- Jersey
+- RESTeasy
+
+JAX-RS API uporablja **anotacije** za dekodiranje programske kode
+
+### REST aplikacija
+
+Da aplikacijo v Javi onzačimo kot REST, jo moramo definirati z **aplikacijskim razredom**. Anotiramo ga z **@ApplicationPath**, ki definira **relativno pot namestitve** rest aplikacije
+```java
+@ApplicationPath("/v1")
+public class RestStoritve extends javax.ws.rs.core.Application
+{
+  @Override
+  public Set<Class<?>> getClasses() {
+    Set<Class<?>> resources = new
+    java.util.HashSet<Class<?>>();
+    resources.add(RazmerjaStoritev.class);
+    return resources;
+  }
+}
+```
+> pot primera: **api.skladi.si/v1**
+### Pot do virov
+Pot do virov umestimo z anotacijo **@Path**
+```java
+@Path("razmerja")
+public class RazmerjaStoritev{
+  public Response vrniRazmerja(...){...}
+  
+  @Path("{id}")
+  public Response vrniRazmerje(...){...}
+
+  @Path("{id}/vrednosti")
+  public Response vrniVrednosti(...){...}
+
+  @Path("{id}/vrednosti/{idVrednosti}")
+  public Response vrniVrednost(...){...}
+}
+```
+> primer poti: **api.ts.si/v1/razmerja/1212/vrednosti/123441**
+
+### Navezovanje na HTTP metode
+HTTP metode označujemo s sledečimi anotacijami:
+- **@GET** 
+- **@POST**
+- **@PUT**
+- **@DELETE**
+- **@HEAD**
+```java
+  @GET
+  @Path("{id}")
+  public Response vrniRazmerje(...) {... }
+
+  @POST
+  public Response dodajRazmerje(...) {... }
+
+  @PUT
+  @Path("{id}")
+  public Response posodobiRazmerje(...) {... }
+
+  @DELETE
+  @Path("{id}")
+  public Response odstraniRazmerje (...) {... }
+```
+Metode označene z anotacijama **@HEAD** in **@OPTIONS** vračata informacije o viru, a brez vsebine vira.
+### Parametri poti
+Parameter poti anotiramo z anotacijo **@PathParam**
+```java
+@Path("{id}/vrednosti/{idVrednosti: \d{4}-\d{2}-\d{2}}")
+public Response vrniVrednost(
+  @PathParam("id") String skladId,
+  @PathParam("idVrednosti") String vrednostId
+) {... }
+```
+Obstajajo tudi druge anotacije za *vsatvljanje vrednosti* **parametrov zahteve**
+```java
+@QueryParam("filter") //../skladi?filter=naziv
+@HeaderParam("header-name") //za vrednost HTTP zaglavja
+@MatrixParam("name") //../skladi;filter=aktivni/vrednosti;items=6
+@CookieParam("cookie-name") //piskotki 
+@FormParam("form-field-name") //za vrednost spletnih obrazcev
+```
+Za dodajanje privzete vrednosti lahko pred anotacijo parametrov dodamo se  ```@DefaultValue("*") @QueryParam("filter") String filter```.
+#### Parametri poti virov
+Parametre poti moramo nekako prebrati. lahko jih preslikamo v :
+- Primitivne javanske tipe
+- Tipe s konstruktorjem, ki sprejeme samo 1 ```String``` argument
+- Tipe z registriranim konverterjem nadtipa **ParamConverter**
+- Tipe s statično metodo ```valueOf()``` **ali** ```fromString()```, ki sprejme samo 1 ```String``` argument
+```java
+public Response vrniRazmerja(
+  @QueryParam("filter") FilterParam filter
+) {... }
+```
+Z anotacijo **@Encoded** na metodi ali razredu **onemogočimo** preslikavo parametrov.
+### Atributi (argumenti) metod
+Atribut metode vira, ki ne uporablja **nobene anotacije parametrov**, je **entitetni parameter** (pridobimo ga iz **telesa** zahteve).
+```java
+public Response zapisiRazmerje(
+  Razmerje razmerje
+) 
+{
+   return razmerje; 
+}
+```
+Te metode so lahko tipa:
+- ```void``` - odgovor vrne **204 No Content**
+- ```Response``` - odgovor vrne entiteto in poljubni status
+- ```GenericEntity``` - zavije entiteto v atribut **entitity**
+- ```PoljubniRazred``` - vrne **vsebino** entitete
+
+Metode vračajo **HTTP 200** kadar je vsebina entitete definirana, in **HTTP 204**, kadar ni.
+
+### Formati sporočil
+Za to, da povemo kaksen format sporočila prejemamo po metodi, uporablajmo anotaciji **@Consumes** in **@Produces** nad metodo/razredom
+```java
+@Path("skladi")
+@Consumes({ MediaType.APPLICATION_JSON, "application/xml" })
+@Produces({ "application/json"})
+public class RazmerjaStoritev {
+    @GET
+    @Path("{id}")
+    public Response vrniRazmerje(...) {... }
+    
+    @GET
+    @Path("{id}")
+    @Produces({ "application/xml"})
+    public Response vrniRazmerje (...) {... }
+    
+    @POST
+    @Consumes({"application/si.ts.v1.razmerje+json"})
+    public void dodajRazmerje(...) {... }
+}
+```
+### Ponudniki formatov entitet
+Anotacija **@Provider** določa programsko kodo, ki služi kot **razširitev** aplikacije
+- ```MessageBodyReader``` za razčlenjevanje ```InputStreama``` v ```Entiteto```
+- ```MessageBodyWriter``` za preslikovanje ```Entitete``` v ```OutputStream```
+- ```ContextResolver<T>``` za zagotavljanje **konteksta** drugim virom in ponudnikom
+- ```ExceptionMapper<T>``` za preslikavo proženih izjem v ```Response``` objekt, ki se vrne odjemalcu
+
+Lahko bi naprimer uporabili ponudnik konteksta ```ContextResolver<ObjectMapper>``` in bi z njim nastavili format datuma JSON serializacije
+```java
+@Provider
+public class JacksonProvider implements ContextResolver<ObjectMapper> {
+
+  final ObjectMapper defaultObjectMapper;
+
+  public JacksonProvider () {
+    defaultObjectMapper = new ObjectMapper();
+  }
+
+  @Override
+  public ObjectMapper getContext(Class<?> type) {
+    SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd HH:mm a z");
+    defaultObjectMapper.setDateFormat(df);
+    return defaultObjectMapper;
+  }
+}
+```
+### Izjeme
+Prožiti moramo:
+- izjemo ```WebApplcationException```, ki nosi objekt ```Response```
+- izjemo, ki ima definiran ponudnika ```ExceptionMapper```
+```java
+@Provider
+public class SkladiIzjema implements ExceptionMapper<SkladiIzjema> {
+  @Override
+  public Response toResponse(SkladiIzjema izjema) {
+  return Response.status(
+    Response.Status.BAD_REQUEST).build();
+  }
+}
+```
+### Filtri in prestrezniki
+#### Vmesniki filtrov (metoda ```filter```):
+- ```ClientRequestFilter```
+- ```ClientResponseFilter```
+- ```ContainerRequestFilter```
+- ```ContainerResponseFilter```
+> filtre najpogosteje uporabljamo za **manipulacijo** **glave** sporočil
+
+filtre lahko registriramo z anotacijo **@NameBinding**
+```java
+@NameBinding
+public @interface PoljubenFilter {}
+```
+Nato jo lahko uporabimo na poljubnih metodah
+```java
+@PoljubenFilter
+public class MojFilter implementts containerRequestFilter { ... }
+
+@Path
+public class MyResource {
+  @GET
+  @PoljubenFilter
+  public String get() {...}˙
+}
+```
+#### Vmesniki interceptorjev entitet:
+- ```ReaderInterceptor``` (metoda ```aroundReadFrom```)
+- ```WriterInterceptor``` (metoda ```aorundWriteTo```)
+
+> Prestrezniki se uporabljajo za **manipuliranje** **teles** sporočil
+
+```java
+@Provider
+public class GZIPEncoder implements WriterInterceptor {
+  public void aroundWriteTo(WriterInterceptorContext ctx) throws IOException, WebApplicationException {
+    GZIPOutputStream os = new
+    GZIPOutputStream(ctx.getOutputStream());
+
+    try {
+      ctx.setOutputStream(os);
+      return ctx.proceed();
+    } finally {
+      os.finish();
+    }
+  }
+}
+```
+
+### Kontekst Storitve
+z anotacijo **@Context** lahko vstavimo odvisnost v objekte tipov:
+- ```UriInfo``` - informacije o komponentah zahteve (URI, ipd.)
+- ```HttpHeaders``` - informacije o HTTP zaglavju zahteve
+- ```SecurityContext``` - informacije o varnostnem kontekstu(poverilnica vloge, uporabljen način avtentikacije)
+- ```Request``` - celotno zahtevo (če želimo ročno odločati o vrsti procesiranja)
+- ```Providers``` - vsi registrirani ponudniki funkcionalnosti
+- ```ResourceContext``` - Kontekst priprave vira
+- ```Configuration``` - konfiguracija strežnika / odjemalca
+
+### Asinhrono izvajanje
+Sprošča niti, ki upravljajo s HTTP povezavami in povečuje efektivnost strežnika pri veliki količini povezav. Odjemalec časovnih razlik ne opazi
+
+Asihnrono izvajanje omogoča uprabo ```Promise``` vzorca in nudi podporo "*reactive*" stila programiranja.
+
+### Integracija v Java EE
+JAX-RS *lahko sodeluje z* 
+- Enterprise Java Beans (EJB)
+- Context and Dependency Injection (CDI) zrni
+```java
+/* EJB */
+@Stateless
+@Path("skladi")
+public class SkladiStoritev{...}
+```
+```java
+@RequestScoped
+@path("skladi")
+public class SkladiStoritev{...}
+```
+
+### Podatkovne preslikave
+JAX-RS podpira preslikave:
+- med XML in Java Objekti
+- med JSON in Java Objekti
+
+### API za gradnjo odjemalcev
+Za izvajanje klicev se uporablja ```ClientBuilder```, z ```WebTarget``` pa definiramo končno točko vira, kamor vključimo spremenljivke poti
+
+Klient se lahko izvaja tudi asinhrono s pomočjo objekta ```ComparableFuture```, ki implementira ```promise``` vzorec.
+
+Alternativno se lahko uporablja tudi ```callback``` vzorec.
+
+Podobno kot na strežniku, lahko na klientu registriramo **filter** in **interceptorje**
+
+## Procesiranje JSON  FORMATA V JAVI Z JSON-P
+
+JSON strukturo lahko predstavlja:
+- Kolekcija ```"ključ":"vrednost"``` parov
+- Urejen seznam vrednosti
+```json
+{
+ "ime": "Sara",
+ "priimek": "Jakopič",
+ "naslov": {
+  "ulica": "Pod lipami 01",
+  "mesto": "Ljubljana",
+  "postnaStevilka": 1000,
+  "drzava": "Slovenija"
+ },
+ "telefonskeStevilke": [
+  "031 344 112",
+  "031 133 312"
+ ]
+}
+```
+### Streaming API
+
+Predstavlja način **generiranja** in **parsanja** JSON-a, pri katerem se za dostop do podatkov uporabljajo **tokovi**.
+
+Beremo oz. pišemo lahko vedno samo "naprej".
+
+2 glavni abstrakciji:
+- ```JsonParser``` - omogoča branje **toka** JSON datoteke
+  > za ustvarjanje objekta uporabimo ```JsonParserFactory```
+- ```JsonGenerator``` - omogoča zapis JSON-a v **tok**
+  > za ustvarjanje objekta uporabimo ```JsonGeneratorFactory```
+
+#### Kako se dejansko bere JSON?
+```json
+[START_ARRAY
+ {START_OBJECT
+ "tip"KEY_NAME : "domaci"VALUE_STRING,
+ "stevilka"KEY_NAME : "(01) 11 11 111"VALUE_STRING
+ }END_OBJECT,
+ {START_OBJECT
+ "tip"KEY_NAME : "mobilni"VALUE_STRING,
+ "stevilka"KEY_NAME : "(02) 22 22 222"VALUE_STRING
+ }END_OBJECT,
+ {START_OBJECT
+ "tip"KEY_NAME : "sluzbeni"VALUE_STRING,
+ "stevilka"KEY_NAME : "(03) 33 33 333"VALUE_STRING
+ }END_OBJECT
+]END_ARRAY
+```
+#### Object Model API
+Nam olajšuje branje in pisanje JSON-a. je enostaven in preporst za uporabo in temelji na 2 abstrakcijah:
+- ```JsonObject``` - ponudi **Map** vmesnik za dostop do kolekcije ```"ključ":"vrednost"``` parov
+  > objekt zgradimo z ```JsonObjectBuilder```
+- ```JsonArray``` - ponudi **List** vmesnik za dostop do seznama vrednosti
+  > objekt zgradimo z ```JsonArrayBuilder```
+
+Objekt lahko **zapišemo** va datoteki s pomočjo razreda ```JsonWriter```, podobno pa ga lahko **preberemo** iz datoteke s pomočjo razreda ```JsonReader```
+
+
