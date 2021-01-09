@@ -20,7 +20,7 @@ V principu naj bi odjemalec komuniciral z aplikacijo preko omrežja *zgolj preko
 V realnosti si *odjemalec* in *strežnik* izmenjujeta **reprezentacijo virov**, kjer je **oblika** same reprezentacije pomembna. Vir je v postopku izmenjave **enolično naslovljen**, njegova reprezentacija pa odjemalcu zadošča za potrebno **manipulacijo** le tega. Reprezentacije sporočil so **samoopisne**, kjer sporočila vsebujejo vsa potrebna **navodila za procesiranje**.
 
 ## Oblikovanje RESTFUL storitev
-RESTful spletni API (RESTful spletna storitev) temelji na osvoni REST arhitekture in **HTTP** protokola. Podatki so zapisani v *hipertekst* obliki in se prenašajo preko internetnega medija. 
+RESTful spletni API (RESTful spletna storitev) temelji na osnovi REST arhitekture in **HTTP** protokola. Podatki so zapisani v *hipertekst* obliki in se prenašajo preko internetnega medija. 
 
 ### Viri
 Oblikovanje virov je pomembno! Viri morajo biti oblikovani **enostavno** in **učinkovito**!
@@ -134,7 +134,7 @@ Zgodi se lahko tudi, da je **format podan** kar **v URL naslovu**, v tem primeru
 > my.api.url/v1/entity/blabla.json <br> my.api.url/v1/entity/blabla.csv
 
 #### JSON ( JavaScript Object Notation ) - applicaton/json
-Najpogosteje uporabljen MIME format v REST storitvah, enostaven za račlenjevanje, dobro podprt v vseh okoljih, lahko berljiv in učinkovit z poravo prostora.
+Najpogosteje uporabljen MIME format v REST storitvah, enostaven za račlenjevanje, dobro podprt v vseh okoljih, lahko berljiv in učinkovit z porabo prostora.
 ```json
 {
   "id": 3,
@@ -207,7 +207,7 @@ GET https://api.ts.si/razmerja/1223
   "naziv": "Razmerje2",
   "oznaka": "S2",
   "sektor": {
-    "id": 123123
+    "id": 123123,
     "link": "https://api.skladiapp.si/sektorji/123123"
   },
   "tveganje": 2
@@ -223,7 +223,7 @@ GET https://api.ts.si/razmerja/1223?expand=sektor
   "naziv": "Razmerje2",
   "oznaka": "S2",
   "sektor": {
-    "id": 123123
+    "id": 123123,
     "link": "https://api.ts.si/sektorji/123123",
     "naziv": "Razviti trgi",
     "tveganje": 2,
@@ -240,11 +240,11 @@ V primeru prekoračitve postavljene omejitve se odjemalcu vrne HTTP status **429
 Skladno z zgornjim se odjemalca sproti ob vsakem zahtevku obvesti o omejitvah s pomočjo polj v glavi odgovora:
 - **X-Rate-Limit-Limit** - št. dovoljenih zahtevkov v trenutni časovni enoti
 - **X-Rate-Limit-Remaining** - št. preostalih zahtevkov v trenutni časovni enoti
-- **X-Rate-Limit-Reset** - št. preostalih sekund v trenutni častovni enoti
+- **X-Rate-Limit-Reset** - št. preostalih sekund v trenutni časovni enoti
 ### Napake
 Dobra praksa je, da so informacije o napakah čim bolj **informativne**. Moramo podati dovolj informacij, da lahko odjemalec pravilno odreagira, hkrati pa moremo paziti, da ne podamo *preveč* informacij, ki bi lahko morebitnemu napadalcu posredovale občutljive informacije.
 ### Varnost
-REST je **stateless**, kar pomei, da se **izogiba sejam**, če je le to mogoče.
+REST je **stateless**, kar pomeni, da se **izogiba sejam**, če je le to mogoče.
 
 Avtentikacija je priporočljiva preko obstoječih protokolov:
 - Vedno SSL
@@ -265,18 +265,18 @@ seznam "uporabnih" HTTP kod za napake:
 - **401 Unauthorized** - Avtentikacija uporabnika ni uspešna
 - **403 Forbidden** - Avtorizacija uporabnikda do vira ni uspešna
 - **404 Not Found** - Zahteva po viru, ki ne obstaja
-- **405 Method Not Allowed** - zahteva po HTTP metodi, ki uprabniku ni dovoljena
+- **405 Method Not Allowed** - zahteva po HTTP metodi, ki uporabniku ni dovoljena
 - **410 Gone** - Vir na URL ne obstaja več *(uporabno za verzioniranje)*
-- **415 Unsupported Media Type** - Tip vsebine zahtee ni veljaven
+- **415 Unsupported Media Type** - Tip vsebine zahteve ni veljaven
 - **422 Unprocessable Entity** - Validacijska napaka
-- **429 Too Many Requests** - Zahteva zavrnjena zaradi preobrementive strežnika
+- **429 Too Many Requests** - Zahteva zavrnjena zaradi preobremenitve strežnika
 - **500 Internal Server Error** - Generalna napaka na strani strežnika
 
-### HTTP medpomnenje
+### HTTP medpomnjenje
 Uporabno, saj lahko odjemalcu po poizvedbi po viru, ki se ni spremenil, sporočimo, da je vir, do katerega želi dostopati, še vedno enak kot je bil prej, torej ni potrebno prenašanje nikakršnih koli podatkov. Če je vir po katerem sprašuje odjemalec od zadnje zahteve ostal nespremenjen, bo strežnik vrnil odgovor **304 Not Modified**.
 
 ### Kompresiranje vsebine
-Podatke, ki se prenašajo preko HTTP zahtev lahko kompresiramo z različnimi algoritmi, ki jih morata za uspešno kompresijo in dekompresijo podpirati odjemalec in strežnik. Ta funckionalnost je opcijska, a zelo priročna, saj z njo pridobimo na hitrosti prenosa.
+Podatke, ki se prenašajo preko HTTP zahtev lahko kompresiramo z različnimi algoritmi, ki jih morata za uspešno kompresijo in dekompresijo podpirati odjemalec in strežnik. Ta funkcionalnost je opcijska, a zelo priročna, saj z njo pridobimo na hitrosti prenosa.
 
 V glavi lahko definiramo kompresijski algoritem, ki ga želimo uporabljati.
 ```
@@ -296,7 +296,7 @@ JAX-RS API uporablja **anotacije** za dekodiranje programske kode
 
 ### REST aplikacija
 
-Da aplikacijo v Javi onzačimo kot REST, jo moramo definirati z **aplikacijskim razredom**. Anotiramo ga z **@ApplicationPath**, ki definira **relativno pot namestitve** rest aplikacije
+Da aplikacijo v Javi označimo kot REST, jo moramo definirati z **aplikacijskim razredom**. Anotiramo ga z **@ApplicationPath**, ki definira **relativno pot namestitve** rest aplikacije
 ```java
 @ApplicationPath("/v1")
 public class RestStoritve extends javax.ws.rs.core.Application
@@ -363,7 +363,7 @@ public Response vrniVrednost(
   @PathParam("idVrednosti") String vrednostId
 ) {... }
 ```
-Obstajajo tudi druge anotacije za *vsatvljanje vrednosti* **parametrov zahteve**
+Obstajajo tudi druge anotacije za *vztavljanje vrednosti* **parametrov zahteve**
 ```java
 @QueryParam("filter") //../skladi?filter=naziv
 @HeaderParam("header-name") //za vrednost HTTP zaglavja
@@ -375,7 +375,7 @@ Za dodajanje privzete vrednosti lahko pred anotacijo parametrov dodamo se  ```@D
 #### Parametri poti virov
 Parametre poti moramo nekako prebrati. lahko jih preslikamo v :
 - Primitivne javanske tipe
-- Tipe s konstruktorjem, ki sprejeme samo 1 ```String``` argument
+- Tipe s konstruktorjem, ki sprejme samo 1 ```String``` argument
 - Tipe z registriranim konverterjem nadtipa **ParamConverter**
 - Tipe s statično metodo ```valueOf()``` **ali** ```fromString()```, ki sprejme samo 1 ```String``` argument
 ```java
@@ -490,7 +490,7 @@ public class MyResource {
 ```
 #### Vmesniki interceptorjev entitet:
 - ```ReaderInterceptor``` (metoda ```aroundReadFrom```)
-- ```WriterInterceptor``` (metoda ```aorundWriteTo```)
+- ```WriterInterceptor``` (metoda ```aroundWriteTo```)
 
 > Prestrezniki se uporabljajo za **manipuliranje** **teles** sporočil
 
@@ -522,9 +522,9 @@ z anotacijo **@Context** lahko vstavimo odvisnost v objekte tipov:
 - ```Configuration``` - konfiguracija strežnika / odjemalca
 
 ### Asinhrono izvajanje
-Sprošča niti, ki upravljajo s HTTP povezavami in povečuje efektivnost strežnika pri veliki količini povezav medtem ko djemalec časovnih razlik ne opazi.
+Sprošča niti, ki upravljajo s HTTP povezavami in povečuje efektivnost strežnika pri veliki količini povezav medtem ko odjemalec časovnih razlik ne opazi.
 
-Asihnrono izvajanje omogoča uprabo ```Promise``` vzorca in nudi podporo "*reactive*" stila programiranja.
+Asinhrono izvajanje omogoča uporabo ```Promise``` vzorca in nudi podporo "*reactive*" stila programiranja.
 
 ### Integracija v Java EE
 JAX-RS *lahko sodeluje z* 
@@ -607,12 +607,12 @@ Beremo oz. pišemo lahko vedno samo "naprej".
 ]END_ARRAY
 ```
 #### Object Model API
-Nam olajšuje branje in pisanje JSON-a. je enostaven in preporst za uporabo in temelji na 2 abstrakcijah:
+Nam olajšuje branje in pisanje JSON-a. Je enostaven in preprost za uporabo in temelji na 2 abstrakcijah:
 - ```JsonObject``` - ponudi **Map** vmesnik za dostop do kolekcije ```"ključ":"vrednost"``` parov
   > objekt zgradimo z ```JsonObjectBuilder```
 - ```JsonArray``` - ponudi **List** vmesnik za dostop do seznama vrednosti
   > objekt zgradimo z ```JsonArrayBuilder```
 
-Objekt lahko **zapišemo** va datoteki s pomočjo razreda ```JsonWriter```, podobno pa ga lahko **preberemo** iz datoteke s pomočjo razreda ```JsonReader```
+Objekt lahko **zapišemo** v datoteki s pomočjo razreda ```JsonWriter```, podobno pa ga lahko **preberemo** iz datoteke s pomočjo razreda ```JsonReader```
 
 
