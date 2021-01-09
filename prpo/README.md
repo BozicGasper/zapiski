@@ -1,7 +1,7 @@
 # PRPO (povzeti) zapiski od juriča v MD formatu
 - <a href="https://github.com/mindOfCaspian/zapiski/tree/main/prpo/rest">REST</a>
 
-- <a href="https://github.com/mindOfCaspian/zapiski/tree/main/prpo/Swagger%2BOAS">Swagger in OpenAPI</a>
+- <a href="https://github.com/mindOfCaspian/zapiski/tree/main/prpo/SwaggerAndOAS">Swagger in OpenAPI</a>
 
 - <a href="https://github.com/mindOfCaspian/zapiski/tree/main/prpo/Mikrostoritve">Mikrostoritve</a>
 
