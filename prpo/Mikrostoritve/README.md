@@ -21,14 +21,14 @@ Pri posodobitvah je potrebna **ponovna namestitev celote**, kar predstavlja tež
 
 <img style="border-radius:0.5rem" src="arhitekturaMikro.png">
 
-Vsaka storitev je nameščena ločeno, v svojem izvajalnem okolju (*vsebnik* ali *aplikacijski strežnik*), komunikacija med njimi pa poteka izključno prerko vmesnikov. 
+Vsaka storitev je nameščena ločeno, v svojem izvajalnem okolju (*vsebnik* ali *aplikacijski strežnik*), komunikacija med njimi pa poteka izključno preko vmesnikov. 
 
 Pomembno je da so odvisnosti med sabo **minimizirane**
 
 ## Principi
 - Storitve izpostavljajo vmesnike
 - Storitve lahko neodvisno zamenjamo ali posodobimo
-- Soritve so načrtovane tako, da so odporne na izpade
+- Storitve so načrtovane tako, da so odporne na izpade
 - Izmenjava sporočil med storitvami je lahko sinhrona ali asinhrona
 
 ### Princip ene odgovornosti
@@ -46,9 +46,9 @@ Ena mikrostoritev je namenjena izključno **eni funkcionalnosti**
 
 ## Koncepti
 - Zgradba komponent temelji na storitvah
-- Storitve orgagniziramo okrog poslovnih zmožnosti (*enterprise*)
+- Storitve organiziramo okrog poslovnih zmožnosti (*enterprise*)
 - **Dostopne na končnih točkah**
-- Decentraliziran nadzor in uporavljanje
+- Decentraliziran nadzor in upravljanje
 - **Avtomatizacija infrastrukture** - mikrostoritve najbolje delujejo na oblačnih platformah ali v vsebnikih (*docker*)
 - **Verzioniranje** in iterativni razvoj
 
