@@ -87,7 +87,7 @@ spec:
         app: zgodovina
     spec:
       containers:
-        - image: mynameisgasper/prpo:zgodovina
+        - image: zgodovinaImage
           name: zgodovina
           ports:
             - containerPort: 8081
