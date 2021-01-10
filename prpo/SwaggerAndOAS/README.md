@@ -2,7 +2,7 @@
 **Swagger** Specifikacija je de facto standard za opis in dokumenitarnje API-jev, **OpenAPI Specification 3.0** ali **OAS 3.0** pa je nova specifikacija, ki predstavlja pomemnben mejnik pri rasti API ekonomije, ki omogoča opis in dokumentiranje APIjev, ki so razviti po trenutno najboljših praksah.
 
 ### primerjava Swagger(OAS 2.0) proti novemu OAS 3.0
-<img src="swaggerVsOAS.png"></img>
+<img src="swaggerVsOAS.png">
 
 #### sprememba formata
 "Swagger" je bil preimenovan v "OpenAPI", med drugim pa nova verzija uporablja tudi *boljše* "**Semver**" verzioniranje: 3.0.0 (nova) namesto 2.0 (stara).

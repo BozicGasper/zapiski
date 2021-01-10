@@ -13,3 +13,9 @@
 
 - <a href="https://github.com/mindOfCaspian/zapiski/tree/main/prpo/Predstavitveni%20nivo">Predstavitveni nivo</a>
 
+- <a href="https://github.com/mindOfCaspian/zapiski/tree/main/prpo/AMQP">AMQP</a>
+
+- <a href="https://github.com/mindOfCaspian/zapiski/tree/main/prpo/DevOps">DevOps</a>
+
+
+

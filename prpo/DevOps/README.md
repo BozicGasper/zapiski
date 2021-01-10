@@ -48,7 +48,7 @@ Smiselno je tudi oceniti
 # Zvezna integracija (*Continous Integration - CI*)
 Predstavlja dobro prasko za *zmanjševanje tveganj pri razvoju programske opreme*, kjer je glvni cilj **ČIM HITREJŠTE PRIDOBIVANJE POVRATNIH INFORMACIJ**
 
-<aimg src="https://www.mendix.com/evaluation-guide/app-lifecycle/attachments/devops-cycle.png" style="margin:1rem;border-radius:0.5rem;">
+<img src="https://www.mendix.com/evaluation-guide/app-lifecycle/attachments/devops-cycle.png" style="margin:1rem;border-radius:0.5rem;">
 
 ## Pristop
 Namen je doseči **popolno avtomatizacijo build-ov**, kjer je **avtomatizirano** tudi **testiranje**. 
@@ -65,7 +65,7 @@ Tipičen cikel zvezne dostave zajema
 4. Testiranje
 5. Dostavo (*namestitev*)
 
-<aimg src="ci.png" width="50%" style="margin:1rem;border-radius:0.5rem">
+<img src="ci.png" width="50%" style="margin:1rem;border-radius:0.5rem">
 
 ## Načela zvezne dostave
 - **ponovljiv in zanesljiv proces izdaje in namestitev**
@@ -85,7 +85,7 @@ Tipičen cikel zvezne dostave zajema
 # Gradniki okolja DevOps
 ## Repozitorij izvorne kode
 Uporabljamo sisteme za upravljanje z izvorno kodo kot so *Git* ali *Svn*, ki so namenjeni upravljanju z **verzijemi** aplikacije. S tem lahko zagotovimo nek **Distribuiran**  ali **Centraliziran** model.
-<aimg src="versionControll.png" style="margin:1rem;border-radius:0.5rem" width="75%">
+<img src="versionControll.png" style="margin:1rem;border-radius:0.5rem" width="75%">
 
 ## Repozitorij programskih artefaktov
 Se uporabljajo za hranjenje in strežbo paketov programske kode, knjižnjic, dokumentacije ipd. Poznamo javne in zasebne različice.
@@ -140,7 +140,7 @@ Dokumentiranje komponent je odvisno do uporabe **build orodja**, kjer build stre
 > Najpogosteje uporabljena orodja so *Javadoc*, *Doxygen*, *XSDDoc*, ...
 
 ## Primer cikla CI
-<aimg src="razvojEE.png" style="margin:1rem;border-radius:0.5rem" width="75%">
+<img src="razvojEE.png" style="margin:1rem;border-radius:0.5rem" width="75%">
 
 # Testiranje kode in avtomatizacija
 Pomen celovitega testiranja programske kode je v **identifikacija napak v programski opremi**, ki jih odpravimo preden produkt ponudimio končnim uporabnikom..
@@ -154,14 +154,14 @@ Pri agilnem pristopu je razvoj programske opreme **hiter**, kjer se kratek razvo
 Če zgodaj testiramo, lahko zgodaj odkrijemo napake in jih idpravimo
 ### **Test-Driven Development (TDD)**
 Pogosto se ponavlja kratek razvojni cikel (*agilni pristop*), kjer se vključuje **test-first** koncept programiranja
-<aimg src="testfirst.png" width="75%" style="margin:1rem;border-radius:0.5rem">
+<img src="testfirst.png" width="75%" style="margin:1rem;border-radius:0.5rem">
 
 ## Kako testirati?
 testiramo lahko **ročno** (*razvijalec, testerji, naročniki, alpha-testerji...) ali pa **avtomatizirano** (*uporaba testnih ogrodij*).
 
 ## Oblike testiranja programske opreme
 
-<aimg src="obliketestiranja.png" style="margin:1rem;border-radius:0.5rem" width="75%">
+<img src="obliketestiranja.png" style="margin:1rem;border-radius:0.5rem" width="75%">
 
 ### Testiranje enot (*unit testing*)
 V tej obliki se testirajo najmanjši samostojni deli projekta (*metode*), s čimer lahko učinkovito testiramo **poslovno logiko**
@@ -192,7 +192,7 @@ Vključujejo se **subjektivni kriteriji**, kot so *"ease of use"*, *"look & feel
 # Testiranje enot
 *Funkcionalno in integracijsko testiranje* oz. *black box* pokrije 70% kode., medtem ko **testiranje enot** oz. *white box* omogoča večjo pokritost.
 
-<aimg src="testenot.png" style="margin:1rem;border-radius:0.5rem" width="75%">
+<img src="testenot.png" style="margin:1rem;border-radius:0.5rem" width="75%">
 
 Z integracijskimi in funkcionalnimi testi lahko preverimo, ali v implementaciji obstajajo hrošči, z testi enot pa lahko ugotovimo, kje se ti hrošči skrivajo.
 
