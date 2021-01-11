@@ -1,5 +1,5 @@
 # OpenAPI & Swagger
-**Swagger** Specifikacija je de facto standard za opis in dokumenitarnje API-jev, **OpenAPI Specification 3.0** ali **OAS 3.0** pa je nova specifikacija, ki predstavlja pomemnben mejnik pri rasti API ekonomije, ki omogoča opis in dokumentiranje APIjev, ki so razviti po trenutno najboljših praksah.
+**Swagger** Specifikacija je de facto standard za opis in dokumentiranje API-jev, **OpenAPI Specification 3.0** ali **OAS 3.0** pa je nova specifikacija, ki predstavlja pomemben mejnik pri rasti API ekonomije, ki omogoča opis in dokumentiranje API-jev, ki so razviti po trenutno najboljših praksah.
 
 ### primerjava Swagger(OAS 2.0) proti novemu OAS 3.0
 <img src="swaggerVsOAS.png">
@@ -8,7 +8,7 @@
 "Swagger" je bil preimenovan v "OpenAPI", med drugim pa nova verzija uporablja tudi *boljše* "**Semver**" verzioniranje: 3.0.0 (nova) namesto 2.0 (stara).
 #### opis URL-jev
 ##### Swagger 2.0
-omogoča definiranje posamezne sheme (*scheme*), naslov gostitelja (*host*) in osnovni URL APIja (*baseUrl*)
+omogoča definiranje posamezne sheme (*scheme*), naslov gostitelja (*host*) in osnovni URL API-ja (*baseUrl*)
 ```yaml
 info:
   title: Uber API
@@ -19,7 +19,7 @@ schemes: [http, https]
 basePath: /v1
 ```
 ##### OAS 3.0
-omogoča definiranje **večih** URLjev - lahko jih definiramo na **nivoju APIja** ali na **nivoju kočne točke**
+omogoča definiranje **večih** URLjev - lahko jih definiramo na **nivoju API-ja** ali na **nivoju konče točke**
 ```yaml
 info:
   title: UberAPI
@@ -142,9 +142,9 @@ components:
       openIdConnectUrl: https://kumuluzapi-ha.cloud.si/auth/realms/kumuluz-api/.well-known/openid-configuration
 ```
 ### Orodja Swagger in podpora za OpenAPI 3.0
-Swagger nudi orodja s podporo za OpenAPI specifikaijo
-- **Swagger Editor** - urejevalnik specifikaije
-- **Swagger Codegen** - generator kode na podlaki specifikacije
+Swagger nudi orodja s podporo za OpenAPI specifikacijo
+- **Swagger Editor** - urejevalnik specifikacije
+- **Swagger Codegen** - generator kode na podlagi specifikacije
 - **Swagger UI** - prikaz dokumentacije
 - **Swagger Core** - strežniška integracija za generiranje OAS
 - **Swagger Parser** - OAS to Java POJOs
@@ -177,15 +177,15 @@ knjiznjiza **Swagger-Core 2.0.X** podpira generiranje OAS 3.0 definicijskih dato
 ### OAS 2.0 (SWAGGER)
   > **definicija:** Standardna specifikacija za opisovanje in dokumentiranje REST API-jev v obliki razumljivi človeku **in** računalniku. Predstavlja **orodje** za implementacijo, uporabo in vizualizacijo REST API-jev
   
-OAS omogoča formalno predstavitev REST API-jev v **yaml** ali **json** in ne zahteva *refaktoriranja obstoječe implmentacije* ter ne določa nekega *razvojnega procesa* (kot npr. *'design-first'* ali *'code-first'*)
+OAS omogoča formalno predstavitev REST API-jev v **yaml** ali **json** in ne zahteva *refaktoriranja obstoječe implementacije* ter ne določa nekega *razvojnega procesa* (kot npr. *'design-first'* ali *'code-first'*)
 
 Osrednji elementi OAS za nek REST API so:
-- **Swagger Object** - korenski objekt API specifikaije, ki vsebuje glavne info. o APIju
+- **Swagger Object** - korenski objekt API specifikacije, ki vsebuje glavne info. o APIju
 - **Path Object** - vsebuje definicije relativnih poti posameznih končnih točk
   - **Path Item Object** - definira operacije, ki so na voljo na neki poti
   - **Operation Object** - definira API operacijo na neki poti
   - **Parameter Object** - definira vhodne parametre operacije
-  - **Responses ovject** - definira pričakovane odgovre operacije
+  - **Responses Object** - definira pričakovane odgovore operacije
 - **Schema Object** - vsebuje definicije vhodnih in izhodnih podatkovnih tipov
 #### Implementacija
 OAS lahko implementiramo
@@ -268,8 +268,8 @@ Zraven zgornjih naštetih je mogoče v najnovejši verziji OpenAPI uporabiti tud
 
 | Anotacija | Opis |
 | -- | -- |
-| @SwaggerDefinition | Anotacija za zagotavljanje splošnih inforamcij dokumentacije Swagger |
-| @Info | Anotacija za zagotavljanje osvnonih meta podatkov |
+| @SwaggerDefinition | Anotacija za zagotavljanje splošnih informacij dokumentacije Swagger |
+| @Info | Anotacija za zagotavljanje osnovnih meta podatkov |
 | @Contact | Anotacija za zagotavljanje informacij kontaktne osebe |
 | @License | Anotacija za opis licence |
 | @Extension | Anotacija za dodajanje razširitev z dodatnimi informacijami |
@@ -317,7 +317,7 @@ Anotaciji ```@ApiResponses``` in ```@ApiResponse``` se uporabljata za opis odgov
 )
 public Response getRazmerjeById(...) {...}
 ```
-Anotaciji ```@Authorization``` in ```@AuthorizationScope``` se uporabljata v okviru anotacij *@Api* in *@ApiOperation*. Z njima označimo, kateri avtorizacijski mehanizem se uporablja na viru ali opraciji
+Anotaciji ```@Authorization``` in ```@AuthorizationScope``` se uporabljata v okviru anotacij *@Api* in *@ApiOperation*. Z njima označimo, kateri avtorizacijski mehanizem se uporablja na viru ali operaciji
 ```java
 @ApiOperation(
   value = "Dodaj novo razmerje",
@@ -386,7 +386,7 @@ Anotacija ```@SwaggerDefiniton``` omogoča definiranje splošnih lastnosti API-j
   info = @Info(
     description = "API za upravljanje razmerij", 
     version = "v1.0.0",
-    title = "RzmerjaAPI", 
+    title = "RazmerjaAPI", 
     termsOfService = "http://api.kumuluz.com/terms.html",
     contact = @Contact( 
       name ="Zvone Gazvoda", 
@@ -417,10 +417,10 @@ public interface RazmerjaApiConfig { }
 
 #### Generiranje in izpostavitev OAS
 Če imamo celotno zadevo pravilno anotirano, lahko našo specifikacijo
-- integriramo v sam API ob namestitivi v ivajalno okolje *ali*
-- generiramo ob grandji projekta samega
+- integriramo v sam API ob namestitivi v izvajalno okolje *ali*
+- generiramo ob gradnji projekta samega
 
-Dokumentacijo APIja integriramo v App takole:
+Dokumentacijo API-ja integriramo v App takole:
 1. V projekt dodamo ustrezne Swagger odvisnosti
 2. Swagger integriramo v konfiguracijo JAX-RS aplikacije
 3. Konfiguriramo in inicializiramo Swagger

@@ -1,7 +1,7 @@
 # Docker
 Docker je odprtokodna rešitev za uporabo **vsebniške tehnologije**, ki nam omogoča:
 - prenos rešitev iz razvojnega v produkcijsko okolje, brez da bi pri tem prihajalo do neskladnosti.
-- neodvistnost
+- neodvisnost
 
 <img width="75%" style="border-radius:0.5rem" src="docker.png">
 
@@ -24,7 +24,7 @@ Container-ji nudijo **popolno izolacijo** med *aplikacijimi* in *nižje ležečo
 Vsebnike lahko **zaganjamo**, **ugašamo**, **premikamo** in **brišemo**
 
 ### Kreiranje docker vsebnika
-Docker container zaženemo z ukacom ```run```
+Docker container zaženemo z ukazom ```run```
 ```docker
 docker run my-image
 ```
@@ -39,20 +39,20 @@ CMD /usr/games/fortune -a | cowsay
 > slika bazira na zadnji verziji slike *whalesey*, ki je morda že dostopna na mašini ali na Docker Hub-u, iz koder se bo prenesla, v primeru da še ne obstaja na naši mašini.
 
 ## Docker Image
-Container-je gradimo iz **Docker Slik** (Docker Images), ki uporabljajo skupne datotečne sisteme in si delujo nivoje slik.
+Container-je gradimo iz **Docker Slik** (Docker Images), ki uporabljajo skupne datotečne sisteme in si delijo nivoje slik.
 
 <img style="border-radius:0.5rem" width="50%" src="https://miro.medium.com/max/2520/1*p8k1b2DZTQEW_yf0hYniXw.png">
 
 ### Gradnja slke
 #### Dockerfile
-Dockerfile je tekstovni dokument, ki vsebuje vse ukaze, ki jih uporabnik lahko kliče v ukazni vrstici za izgrandjo slike.
+Dockerfile je tekstovni dokument, ki vsebuje vse ukaze, ki jih uporabnik lahko kliče v ukazni vrstici za izgradnjo slike.
 
 direktive v Dockerfile-u imajo format ```INSTRUCTION arguments``` in **niso** case-sensitive.
 
 Za pisanje komentarjev se porablja znak ```#```
 
-##### Sklicevanje na okoljske spremenljivkež
-V datoteki *Dockerfile* se lahko sklicujemo na okoljske spremenljivke z ```$variable_name``` ali ```${variable_name}, določimo pa jih z *direktivo* ```ENV```
+##### Sklicevanje na okoljske spremenljivke
+V datoteki *Dockerfile* se lahko sklicujemo na okoljske spremenljivke z ```$variable_name``` ali ```${variable_name}```, določimo pa jih z *direktivo* ```ENV```
 ```Docker
 ENV myPort 8080
 EXPOSE ${myPort}
@@ -61,7 +61,7 @@ Okoljske spremenljivke lahko uporabimo v različnih direktivah ````ADD, COPY, EN
 
 #### Dockerfile direktive
 ##### FROM
-Prva direktia v Dockerfile je vedno **FROM**, s katero določimo osnovno sliko nad katero gradimo
+Prva direktiva v Dockerfile je vedno **FROM**, s katero določimo osnovno sliko nad katero gradimo
 ```Docker
 FROM <image>
 FROM <image>:<tag> # :<tag> opcijsko, default: 'latest'
@@ -129,7 +129,7 @@ RUN echo "hello world" > /myvol/gretting
 VOLUME /myvol
 ```
 ##### USER, WORKDIR
-Direktiva **USER** določi ime uporabnika ali UID, ki se uporabi ob zagonu slike inza izvedbo ukazov RUN, CMD in ENTRYPOINT.
+Direktiva **USER** določi ime uporabnika ali UID, ki se uporabi ob zagonu slike in za izvedbo ukazov RUN, CMD in ENTRYPOINT.
 ```Docker
 USER daemon
 ```

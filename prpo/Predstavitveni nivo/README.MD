@@ -15,7 +15,7 @@ Omejitve tovrstne arhitekture:
 - **sklopljenost** front-end in back-end tehnologije
 - **problem prilagoditve izpisa** komponente
 
-### Pristop z client-size MVC (*Model-View-Controller na odjemalcu*)
+### Pristop z client-side MVC (*Model-View-Controller na odjemalcu*)
 Model, pogled in kontroler se nahajajo na **strani odjemalca**, kar pomeni, da je celotna kontrola na izvajanjem na **strani odjemalca** in ne strežnika.
 
 Stanje se tipično ne hrani na strežniku, saj naj strežniško okolje zagotavlja bolj *stateless* storitve
@@ -28,13 +28,13 @@ Za implementacijo naših **REST storitev** lahko uporabimo **poljubno tehnologij
 - Servlet Container
 - Node.js
 
-**Statične vsebine** tipično streže omrežje **CDN (*Content Delivery Network*)
+**Statične vsebine** tipično streže omrežje **CDN** (*Content Delivery Network*)
 - JS, CSS, slike, videi, HTML vsebine...
 
 Zaradi **razklopljenosti** odjemalca in strežnika je možna tudi **kombinacija tehnologij**:
 - Del statičnih vsebin streže CDN, drugi del pa lokalni strežnik (*nginx/Apache*)
 
-<img style="border-radius:.5rem" src="simplementacijaHTML.png">
+<img style="border-radius:.5rem" src="implementacijaHTML.png">
 
 ## Predstavitveni nivo
 
@@ -79,7 +79,7 @@ Združuje zmogljivost **strežniškega modela** in **odjemalskega** modela, kjer
 
 | **Strežniški model** | **Odjemalski model** | **Kombiniran model**|
 |--|--|--|
-|<img style="border-radius:.5rem" src="smodeli/strezniskiModel.png">|<img  style="border-radius:.5rem" src="smodeli/odjemalskiModel.png">|<img  style="border-radius:.5rem" src="smodeli/kombiniranModel.png">|
+|<img style="border-radius:.5rem" src="modeli/strezniskiModel.png">|<img  style="border-radius:.5rem" src="modeli/odjemalskiModel.png">|<img  style="border-radius:.5rem" src="modeli/kombiniranModel.png">|
 
 #### Moderni koncepti spletnih vmesnikov
 - HTML5 standard
@@ -97,13 +97,13 @@ Brskalnik ima na dizvajanjem uporabniškega vmesnika **popolno kontrolo**
 ## Tradicionalni pristop k razvoju mobilnih aplikacij
 ### Desktip First pristop
 Izvaja se postopna degradacija uporabniškega vmesnika
-<img style="border-radius:.5rem" src="apristopRazvoja/desktopFirst.png">
+<img style="border-radius:.5rem" src="pristopRazvoja/desktopFirst.png">
 
 ### Mobile First pristop
 Izvaja se progresivna krepitev uporabniškega vmesnika
 - ključne funckionalnosti aplikacije mmorajo biti **enostavne za uporabo**
 - osredotočenost na osnovne primere uporabe
-<img style="border-radius:.5rem" src="apristopRazvoja/mobileFirst.png">
+<img style="border-radius:.5rem" src="pristopRazvoja/mobileFirst.png">
 
 ### HTML5 Mediji
 omogočajo dodajanje audio in video vsebin s HTML elementi \<audio> in \<video>. Podpira različne formate. Element \<source/> se uporablja za **opis vsebine medija**
