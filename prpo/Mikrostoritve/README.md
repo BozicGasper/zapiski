@@ -11,6 +11,7 @@ Ideja je izgradnja aplikacije kot *zbirke* majhnih storitev, kjer vsaka storitev
 
 ### Klasična **monolitna** arhitektura javanske EE aplikacije
 <img style="border-radius:0.5rem" src="arhitektura.png">
+
 Celotni app zapakiramo v en **WAR/EAR** in jo namestimo na aplikacijski strežnik, kjer se obnaša kot "**monolit**".
 
 Skaliramo jo lahko samo kot celoto, tako da uporabljamo *gručo* strežnikov.
