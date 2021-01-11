@@ -240,8 +240,8 @@ myForm:FormGroup = new FormGroup({
     )
 })
 //tako pridobimo vrednost polja v obrazcu
-getNameVal():string{
-    return this.myForm.get('ime').value;
+isNameValid():boolean{
+    return this.myForm.get('ime').valid;
 }
 ```
 
