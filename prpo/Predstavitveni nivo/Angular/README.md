@@ -42,7 +42,7 @@ Util("Janez").pozdrav();
 Angular je ogrodje za izdelavo odjemalskih aplikacij z uporabo **HTML** in **TypeScript** jezika. Prinaša dvakrat večjo moč z dvakrat manj kode.
 
 ### Angular Pristop
-<img src="aangularPristop.png" style="border-radius:.5rem">
+<img src="angularPristop.png" style="border-radius:.5rem">
 
 - **M** - model (*dejanski podatki, ki jih pridobimo iz strežnika*)
 - **V** - view (*html5 dokument, ki prikaže podatke*)
@@ -59,6 +59,7 @@ Angular je ogrodje za izdelavo odjemalskih aplikacij z uporabo **HTML** in **Typ
 Angular ogrodje podpirajo skoraj vsi svetovno znani brskalniki: Chrome, Firefox, Edge, IE, Safari, iOS, Android, IE Mobile...
 
 ## Arhitektura
+
 <img src="https://www.ngdevelop.tech/wp-content/uploads/2017/12/Angular_Architecture.png" width="75%">
 
 ## Moduli (*modules*)
