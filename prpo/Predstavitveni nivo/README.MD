@@ -79,7 +79,7 @@ Združuje zmogljivost **strežniškega modela** in **odjemalskega** modela, kjer
 
 | **Strežniški model** | **Odjemalski model** | **Kombiniran model**|
 |--|--|--|
-|<img style="border-radius:.5rem" src="smodeli/strezniskiModel.png">|<img  style="border-radius:.5rem" src="smodeli/odjemalskiModel.png">|<img  style="border-radius:.5rem" src="smodeli/kombiniranModel.png">|
+|<img style="border-radius:.5rem" src="modeli/strezniskiModel.png">|<img  style="border-radius:.5rem" src="modeli/odjemalskiModel.png">|<img  style="border-radius:.5rem" src="modeli/kombiniranModel.png">|
 
 #### Moderni koncepti spletnih vmesnikov
 - HTML5 standard
