@@ -28,7 +28,7 @@ Za implementacijo naših **REST storitev** lahko uporabimo **poljubno tehnologij
 - Servlet Container
 - Node.js
 
-**Statične vsebine** tipično streže omrežje **CDN (*Content Delivery Network*)
+**Statične vsebine** tipično streže omrežje **CDN** (*Content Delivery Network*)
 - JS, CSS, slike, videi, HTML vsebine...
 
 Zaradi **razklopljenosti** odjemalca in strežnika je možna tudi **kombinacija tehnologij**:
