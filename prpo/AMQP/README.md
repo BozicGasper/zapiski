@@ -9,7 +9,7 @@ Glavne lastnosti protokola so, da
 - ponuja zanesljivost dostave sporočil in
 - varnost.
 
-Vrte **zagotovil** za dostavo sporočil:
+Vrste **zagotovil** za dostavo sporočil:
 - največ enkrat (*at-most-once*)
 - najmanj enkrat (*at-least-once*)
 - točno enkrat (*exactly-once*)
