@@ -21,7 +21,7 @@ Abstrakcija, ki izpostavi večje število replik stroka
 ### Preverjanje zdravja (*Health checking*)
 Sistem za periodično preverjanje dostopnosti aplikacije in za samodejno nadomeščanje nedelujočih replik
 ### Replikacijski niz (*Replica Set*)
-Zagotavlja, da v nekem času teče zahtevano število repli stroka
+Zagotavlja, da v nekem času teče zahtevano število replik stroka
 ### Replikacijski nadzornik (*Replication Controller*)
 Zagotavlja, da v nekem času teče zahtevano število replik stroka.
 ### Nosilec podatkov (*Volume*)
@@ -48,7 +48,7 @@ Stroki **niso** odporni na:
 > Ponavadi jih kreiramo z uporabo *namestitvenih enot* tipa ``Namestitev`` (```Deployment```), ki doprinese k zmožnosti **samodejne vzpostavitve** ob izpadu stroka. Tip je koristen za *upravljanje replik* ter *rollout namestitve in posodobitve*.
 ## Namestitvene enote
 ### Namestitvena enota tipa ```Namestitev``` (```Deployment```)
-Tip omogoča ***deklarativno** posodablanje* strokov in replikacijskih nizov.
+Tip omogoča ***deklarativno** posodabljanje* strokov in replikacijskih nizov.
 
 Objektu tipa ```Namestitev``` določimo želeno stanje, nato pa bo ```DeploymentController``` poskrbel, da se bo stanje *ustrezno posodobilo*.
 
