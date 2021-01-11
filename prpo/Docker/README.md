@@ -52,7 +52,7 @@ direktive v Dockerfile-u imajo format ```INSTRUCTION arguments``` in **niso** ca
 Za pisanje komentarjev se porablja znak ```#```
 
 ##### Sklicevanje na okoljske spremenljivke
-V datoteki *Dockerfile* se lahko sklicujemo na okoljske spremenljivke z ```$variable_name``` ali ```${variable_name}, določimo pa jih z *direktivo* ```ENV```
+V datoteki *Dockerfile* se lahko sklicujemo na okoljske spremenljivke z ```$variable_name``` ali ```${variable_name}```, določimo pa jih z *direktivo* ```ENV```
 ```Docker
 ENV myPort 8080
 EXPOSE ${myPort}
