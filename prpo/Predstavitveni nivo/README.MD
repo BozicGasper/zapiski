@@ -34,7 +34,7 @@ Za implementacijo naših **REST storitev** lahko uporabimo **poljubno tehnologij
 Zaradi **razklopljenosti** odjemalca in strežnika je možna tudi **kombinacija tehnologij**:
 - Del statičnih vsebin streže CDN, drugi del pa lokalni strežnik (*nginx/Apache*)
 
-<img style="border-radius:.5rem" src="simplementacijaHTML.png">
+<img style="border-radius:.5rem" src="implementacijaHTML.png">
 
 ## Predstavitveni nivo
 
