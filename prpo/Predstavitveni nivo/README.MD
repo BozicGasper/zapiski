@@ -97,13 +97,13 @@ Brskalnik ima na dizvajanjem uporabniškega vmesnika **popolno kontrolo**
 ## Tradicionalni pristop k razvoju mobilnih aplikacij
 ### Desktip First pristop
 Izvaja se postopna degradacija uporabniškega vmesnika
-<img style="border-radius:.5rem" src="apristopRazvoja/desktopFirst.png">
+<img style="border-radius:.5rem" src="pristopRazvoja/desktopFirst.png">
 
 ### Mobile First pristop
 Izvaja se progresivna krepitev uporabniškega vmesnika
 - ključne funckionalnosti aplikacije mmorajo biti **enostavne za uporabo**
 - osredotočenost na osnovne primere uporabe
-<img style="border-radius:.5rem" src="apristopRazvoja/mobileFirst.png">
+<img style="border-radius:.5rem" src="pristopRazvoja/mobileFirst.png">
 
 ### HTML5 Mediji
 omogočajo dodajanje audio in video vsebin s HTML elementi \<audio> in \<video>. Podpira različne formate. Element \<source/> se uporablja za **opis vsebine medija**
