@@ -32,7 +32,7 @@ terminologija varne komunikacije:
 - **zaupnost** - kdo sme prebrati sporočilo? (*enkripcija*)
 - **avtentikacija** - dokaži, da si res ti
 - **identifikacija** - avtentikacija brez potrebnega dokazila
-- **integritega sporočila** - podatki med prenosom niso bili spremenjeni
+- **integriteta sporočila** - podatki med prenosom niso bili spremenjeni
 - **preprečevanje zanikanja** - res si poslal/res si prejel
 - **razpoložljivost in nadzor dostopa** - preprečevanje ilegalne/nelegitimne uporabe virov
 
@@ -42,11 +42,11 @@ pomembno vlogo igra tudi **beleženje** vseh dogodkov
 Cilj avtentikacije je prepričati se, da je sogovornik res tisti, za katerega se izdaja.
 
 V sodobnih praksah se za namen avtentikacije večinoma uporabljajo 3 različni principi:
-- izziv-odgovor (vnaprej dogovorjena skupna skrivnost)
-- zaupanje tretji osebi
-- avtentikacija z javnim ključem
+- **izziv-odgovor** (vnaprej dogovorjena skupna skrivnost)
+- **zaupanje tretji osebi**
+- **avtentikacija z javnim ključem**
 ### Izziv - odgovor (*challenge - response* , *shared secret*)
-To je **dvosmerna avtentikacija**, kjer sogovornika za avtentikacijo drugega uprabite v naprej dogovorjen tajni ključ **Kab**.
+To je **dvosmerna avtentikacija**, kjer sogovornika za avtentikacijo drugega uporabita v *naprej dogovorjen tajni ključ* **Kab**.
 
 <img src="slike/izzivodgovor.png" class="r-50">
 
@@ -55,12 +55,12 @@ skrajšamo na
 <img src="slike/izzivodgovor2.png" class="r-50">
 
 #### Napad zarcaljenja (*reflection attack*)
-Na princip izziv-odgovor lahko napadalec vpliva z **napadom zarcaljenja** (**reflection attack**), ki se lahko zgodi v primeru, da borut dovoli več odprtih sej naenkrat
+Na princip izziv-odgovor lahko napadalec vpliva z **napadom zarcaljenja** (**reflection attack**), ki se lahko zgodi v primeru, da Borut dovoli več odprtih sej naenkrat.
 
 <img src="slike/reflectionatt.png" class="r-50">
 
 potek napada:
-1. napadalec se v prvi seji predstavi kot Ana, in pošlje borutu izziv **Ra**
+1. napadalec se v prvi seji predstavi kot Ana, in pošlje Borutu izziv **Ra**
 2. Borut kriptira **Ra** z tajnim ključem in pošlje nazaj napadalcu ("Ani") kriptiran **Ra** in svoj izziv **Rb**
 3. napadalec odpre **drugo sejo** in se predstavi še enkrat kot Ana, a tokrat Borutu pošlje "nakjlučno generiran" izziv, *ki pa je v resnici Borutov izziv iz prve seje (**Rb**).*
 4. Borut, nevedoč kaj se dogaja v ozadju, kirptira svoj lasten izziv **Kab(Rb)** in ga pošlje nazaj napadalcu vključno z izzivom za drugo sejo.
@@ -124,7 +124,7 @@ Strežnik lahko **zavrne dostop**, **zahteva izziv** ali pa enostavno **sprejme 
 
 # Protokola SSL (Secure Sockets Layer) in TLS (Transport Layer Security)
 Aplikacija nudi:
-- **varen komuikacijski kanal**
+- **varen komunikacijski kanal**
 - **overjanje strežnika**
 - **izmenjavo sejnih ključev**
 
@@ -159,7 +159,7 @@ Zagotavlja:
 
 ### Poenostavljen SSL
 poenostavljena ideja protokola SSL zajema 4 faze:
-1. **rokovanje** - Sogovornika med sabo uporabita certifikate, da se predstavita en drugemu in izmenjata ključ
+1. **rokovanje** - Sogovornika uporabita certifikate, da se predstavita en drugemu in izmenjata ključ
 2. **izpeljava ključa** - Sogovornika uporabita izmenjani ključ, da izpeljeta množico ključev
 3. **prenos podatkov** - podatki, ki se prenašajo, so združeni v **zapise**
 4. **zaključek povezave** - varno rušenje povezave
@@ -193,7 +193,7 @@ Pri računanju MAC je potrebno upoštevati **številko segmenta**!
 za zaščito proti ponovitvi komunikacije uporabljamo **enkratni žeton**
 
 ##### problem 2: napadalec predčasno zaključi sejo
-potrebno je uvesti posebe "tip zapisa", ki nosi posebno vrednost, če gre za zaključni paket, zopet uporabimo vrednost pri izračunu MAC.
+potrebno je uvesti poseben "tip zapisa", ki nosi posebno vrednost, **če gre za zaključni paket**, zopet uporabimo vrednost pri izračunu MAC.
 > MAC = MAC(ključ Mx, zaporedna_št || tip || podatki)
 
 ## SSL: prava (kompleksna) izpeljava ključev
