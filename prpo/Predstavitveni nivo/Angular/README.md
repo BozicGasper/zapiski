@@ -59,7 +59,6 @@ Angular je ogrodje za izdelavo odjemalskih aplikacij z uporabo **HTML** in **Typ
 Angular ogrodje podpirajo skoraj vsi svetovno znani brskalniki: Chrome, Firefox, Edge, IE, Safari, iOS, Android, IE Mobile...
 
 ## Arhitektura
-
 <img src="https://www.ngdevelop.tech/wp-content/uploads/2017/12/Angular_Architecture.png" width="75%">
 
 ## Moduli (*modules*)
@@ -240,8 +239,8 @@ myForm:FormGroup = new FormGroup({
     )
 })
 //tako pridobimo vrednost polja v obrazcu
-isNameValid():boolean{
-    return this.myForm.get('ime').valid;
+getNameVal():string{
+    return this.myForm.get('ime').value;
 }
 ```
 

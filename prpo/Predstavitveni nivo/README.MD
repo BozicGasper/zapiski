@@ -15,7 +15,7 @@ Omejitve tovrstne arhitekture:
 - **sklopljenost** front-end in back-end tehnologije
 - **problem prilagoditve izpisa** komponente
 
-### Pristop z client-side MVC (*Model-View-Controller na odjemalcu*)
+### Pristop z client-size MVC (*Model-View-Controller na odjemalcu*)
 Model, pogled in kontroler se nahajajo na **strani odjemalca**, kar pomeni, da je celotna kontrola na izvajanjem na **strani odjemalca** in ne strežnika.
 
 Stanje se tipično ne hrani na strežniku, saj naj strežniško okolje zagotavlja bolj *stateless* storitve
@@ -28,7 +28,7 @@ Za implementacijo naših **REST storitev** lahko uporabimo **poljubno tehnologij
 - Servlet Container
 - Node.js
 
-**Statične vsebine** tipično streže omrežje **CDN** (*Content Delivery Network*)
+**Statične vsebine** tipično streže omrežje **CDN (*Content Delivery Network*)
 - JS, CSS, slike, videi, HTML vsebine...
 
 Zaradi **razklopljenosti** odjemalca in strežnika je možna tudi **kombinacija tehnologij**:
