@@ -1,26 +1,4 @@
-<style>
-.r-50{
-    width:50%;
-    border-radius:.5rem
-}
-.r-75{
-    width:75%;
-    border-radius:.5rem
-}
-.r{
-    border-radius:.5rem
-}
-.h-5{
-    height: 5rem;
-}
-.h-10{
-    height: 10rem;
-}
-.h-15{
-    height: 15rem;
-}
 
-</style>
 
 # Avtentikacija in SSL
 v glavnem imamo dve področji varnosti:
