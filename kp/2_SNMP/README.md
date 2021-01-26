@@ -233,11 +233,11 @@ Implementacija SNMP protokola mora reševati težave
 <img src="slike/snmpoblika.png" style="border-radius:.5rem">
 </div>
 
-Version - verzija SNMP protokola
-Destination party - identifikator pošiljatelja
-Source Party - identifikator prejemnika
-Context - definira množico MIB, ki je dosegljiva
-PDU polja - glavna vsebina sporočila (odvisno od tipa sporočila)
+Version - verzija SNMP protokola  
+Destination party - identifikator pošiljatelja  
+Source Party - identifikator prejemnika  
+Context - definira množico MIB, ki je dosegljiva  
+PDU polja - glavna vsebina sporočila (odvisno od tipa sporočila)  
 
 ### zahteva-odgovor (*request-response*)
 
@@ -245,7 +245,7 @@ PDU polja - glavna vsebina sporočila (odvisno od tipa sporočila)
 <img src="slike/snmpreqres.png" style="border-radius:.5rem;width:50%">
 </div>
 
-### zahteva-odgovor (*request-response*)
+### obvestilo (*trap*)
 
 <div style="padding:1rem">
 <img src="slike/snmptrap.png" style="border-radius:.5rem;width:50%">
