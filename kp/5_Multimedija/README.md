@@ -78,7 +78,7 @@ Brskalnik dobi **metapodatke** preko HTTP zahteve, ter jih posreduje predvajalni
 Podatki se hranijo na ločenem strežniku, od katerega jih potem predvajalnik prenaša. Med tem strežnikom in predvajalnikom je možna uprava tudi drugih protokolov. uporabljamo lahko tudi UDP in TCP.
 
 ## Medpomnenje pri odjemalcu
-**Medpomnenje (*buffering*)** pri odjemlacu prineše zakasnitev predvajanja zaradi **kompenziranja zakasnitev omrežja** in **trepetanja zakasnitev**.
+**Medpomnenje (*buffering*)** pri odjemalcu prinese zakasnitev predvajanja zaradi **kompenziranja zakasnitev omrežja** in **trepetanja zakasnitev**.
 
 <img src="slike/mmpm.png" style="width:50%;border-radius:.5rem">
 
