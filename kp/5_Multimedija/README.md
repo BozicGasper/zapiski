@@ -75,7 +75,7 @@ Brskalnik dobi **metapodatke** preko HTTP zahteve, ter jih posreduje predvajalni
 <img src="slike/pretakanje.png" style="width:50%;border-radius:.5rem">
 
 ### pristop s pretočnimi strežniki
-Med strežnikom in predvajalnikom je možna uprava tudi drugih protokolov. uporabljamo lahko tudi UDP in TCP.
+Podatki se hranijo na ločenem strežniku, od katerega jih potem predvajalnik prenaša. Med tem strežnikom in predvajalnikom je možna uprava tudi drugih protokolov. uporabljamo lahko tudi UDP in TCP.
 
 ## Medpomnenje pri odjemalcu
 **Medpomnenje (*buffering*)** pri odjemlacu prineše zakasnitev predvajanja zaradi **kompenziranja zakasnitev omrežja** in **trepetanja zakasnitev**.
