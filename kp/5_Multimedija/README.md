@@ -165,7 +165,7 @@ Potrebno je alocirati **fiksno** pasovno širino za posamezen tok.
 
 **Krožno razvrščanje** (*round robin*): ciklično obdelujemo vrste in v vsakem obhodu iz vsake vrste obdelamo po en paket
 
-**Uteženo nepristransko razvrščanje** (*Weighter Fair Queueing - WFQ*): to je posplošeno ciklično razvrščanje
+**Uteženo nepristransko razvrščanje** (*Weighter Fair Queueing - WFQ*): to je posplošeno ciklično razvrščanje, ki uteženo obdeluje pakete iz vrst
 
 ## Krmiljenje (policing)
 Cilj krmiljenja je **omejiti promet tako, da ne preseže dogovorjenih parametrov**.
