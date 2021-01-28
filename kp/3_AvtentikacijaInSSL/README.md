@@ -2,18 +2,18 @@
 
 # Avtentikacija in SSL
 v glavnem imamo dve področji varnosti:
-- zanesljivost - zagotavljane razmer za delovanje storitev in normalno delo uporabnikov
+- zanesljivost - zagotavljanje razmer za delovanje storitev in normalno delo uporabnikov
 - zaščita - onemogočanje ilegalne uporabe sistema
 
 ### Zagotavljanje zanesljivosti
-Zanesljivost lahko zagotavljamo z **ustreznim nadzorom** (*zbiranje podatkov o delovanju, logganje*), z **upravljanjem** (*ukrepanje na podalgi varnostnih informacij*), z raznimi **orodji** (SNMP) ter **razpršeno zaščito**, kjer gre za *integriteto povezav, virov, vsebine, sporočil, ...*
+Zanesljivost lahko zagotavljamo z **ustreznim nadzorom** (*zbiranje podatkov o delovanju, logganje*), z **upravljanjem** (*ukrepanje na podlagi varnostnih informacij*), z raznimi **orodji** (SNMP) ter **razpršeno zaščito**, kjer gre za *integriteto povezav, virov, vsebine, sporočil, ...*
 
-## Kriptografkse metode
-Kriptografkse metode ločimo po **načinu** zapisa in **lastnostni ključa**
+## Kriptografske metode
+Kriptografske metode ločimo po **načinu** zapisa in **lastnostmi ključa**
 
 **načini**:
 - substitucijski - posamezne črke/dele besedila nadomestimo z drugimi
-- transpozicijskim - spreminjamo vrstni red znakov
+- transpozicijski - spreminjamo vrstni red znakov
 
 **lastnosti kluča**:
 - simetrični: E=D, ključ mora biti tajen
@@ -21,11 +21,11 @@ Kriptografkse metode ločimo po **načinu** zapisa in **lastnostni ključa**
 
 ### Razbijanje kriptograma:
 #### Napad na kritpirano sporočilo
-napadalec poskuša z metodo brute force, kjer poskuša dekriptirati z uporabo vseh možnih ključev. (*napad z statistkio jezika*)
+napadalec poskuša z metodo brute force, kjer poskuša dekriptirati z uporabo vseh možnih ključev. (*napad z statistiko jezika*)
 #### Napad na neko nekriptirano sporočilo (known plaintext attack)
 v tem primeru ima napadalec text, in tudi zanj primeren kriptogram
 #### Napad na neko izbrano nekriptirano sporočilo (chosen plaintext attack)
-V tej situaciji napadalec lahko pridobi kriptirano besedilo za poljuben iz  besedila
+V tej situaciji napadalec lahko pridobi kriptirano besedilo za poljuben niz  besedila
 
 ## Varna komunikacija
 terminologija varne komunikacije:
@@ -183,8 +183,8 @@ poslanih od **strežnika** odjemlacu
 
 Vsi ključi se izpeljejo z uporabo **posebne funckije**. Ta funkcija uporablja **glavni ključ (*master secret*)** in dodatne *naključne* podatke za generiranje novih ključev.
 
-#### Pošiljajne podatkov
-tok podatkov razivjemo v **zapise**, kjer v vsakem zapisu pripnemo MAC (*Message Authentication Code*). Prejemnik lahko reagira na (ne)veljavnost integritete posameznega zapisa.
+#### Pošiljanje podatkov
+tok podatkov razvijemo v **zapise**, kjer v vsakem zapisu pripnemo MAC (*Message Authentication Code*). Prejemnik lahko reagira na (ne)veljavnost integritete posameznega zapisa.
 
 ##### problem 1: številka segmenta se nahaja nekriptirana v glavi TCP
 Pri računanju MAC je potrebno upoštevati **številko segmenta**!
@@ -197,7 +197,7 @@ potrebno je uvesti poseben "tip zapisa", ki nosi posebno vrednost, **če gre za 
 > MAC = MAC(ključ Mx, zaporedna_št || tip || podatki)
 
 ## SSL: prava (kompleksna) izpeljava ključev
-1. žetona odjemalca in strežnika ter PMS se uprabijo v funckiji, ki izračunava psevdo-naključna števila. Na tak način dobimo **MS (*Master Secret*)**.
+1. žetona odjemalca in strežnika ter PMS se uporabijo v funkciji, ki izračunava psevdo-naključna števila. Na tak način dobimo **MS (*Master Secret*)**.
 2. MS in novi žetoni se vstavijo v drug naključni generator, dobimo **BLOK**. **BLOK* se razreže na 6 delov, da se dobi:
 - MAC odjemalca
 - MAC strežnika
