@@ -2,7 +2,7 @@
 Dogajanje se nahaja na **omrežni plasti**
 
 ## VPN
-**Virtual private network** - navidezno zasebno omrežje omogoča varno komunikacjo med **dvema računalnikoma** oz. med **dvemi omrežji**
+**Virtual private network** - navidezno zasebno omrežje omogoča varno komunikacjo med **dvema računalnikoma** oz. med **dvema omrežjema**
 
 **IPSec** je ena od najbolj razširjenih tehnologij za izvedbo VPN. omgoča nam:
 - avtentikacijo
