@@ -55,7 +55,7 @@ Umazani podatki (*dirty data*):
 
 <img src="slike/dvofazno.png" style="width:50%;border-radius:.5rem">
 
-pojavi se problem odpovedi, kjer se zgodi blokada sistema. Za preprečevanje napak so potrebne časovne kontrole.
+Pojavi se problem odpovedi, kjer se zgodi blokada sistema. Za preprečevanje napak so potrebne časovne kontrole.
 
 Odpovedi rešujemo s **trofaznim potrjevanjem**
 ### Trofazno potrjevanje
