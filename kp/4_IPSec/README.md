@@ -71,7 +71,7 @@ parametre povezave se usklajuje v dveh fazah:
     - nikoli DES!
 
 ## Prednosti in slabosti IPsec glede na SSL/TLS
-| prednosti | slabosti |
+| slabosti | prednosti |
 |-|-|
 |kompliciran|šifrira celoten paket, skupaj z glavo IP|
 |veliko različnih načinov za konfiguracijo|lahko šifrira poljuben protokol|
