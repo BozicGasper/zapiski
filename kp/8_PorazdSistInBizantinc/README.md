@@ -69,16 +69,16 @@ Z replikacijo podatkov pridobimo na
 - zanesljivosti
 - zmogljivosti
 
-> podatke lahko naprimer repliciramo na več lokacij, da so bližje določenim uporabnikom.ž
+> podatke lahko naprimer repliciramo na več lokacij, da so bližje določenim uporabnikom.
 
 Pojavijo se **težave z usklajevanjem**, ki jih rešujemo z
 - striktna konsistentnost (*hkrati se morajo spremeniti vse kopije podatkov*)
 - sekvenčna konsistentnost (*podatki se morajo na vseh kopiranih lokacijah spreminjati v istem zaporedju*)
 
-Replkacija se lahko razpošilja z
-- le obvestilom o spremembi podatka - ko bomo prvič potrebovali podatek bomo poslali zahtevo po vrednosti
-- direktno novo vrednostjo
-- operacijami (nad določenimi podatki izvedemo neko operacijo, da jih tako učinkvoito posodobimo)
+Za replikacijo podatkov se lahko razpošilja
+- le obvestilo o spremembi podatka - ko bomo prvič potrebovali podatek bomo poslali zahtevo po vrednosti
+- direktno novo vrednost
+- kar operacije (nad določenimi podatki izvedemo neko operacijo, da jih tako učinkvito posodobimo)
 
 ## Protokoli za usklajevanje replikacij
 - protokoli s primarno kopijo
@@ -92,10 +92,10 @@ Replkacija se lahko razpošilja z
         - **N<sub>p</sub>** (pisalni quorum) -  število podatkov potrebnih za uspešno pisanje
         - veljati morata 2 pogoja:
             - **N<sub>b</sub> + N<sub>p</sub> > N** (bralni in pisalni quorum morata biti skupaj več kot število vseh lokacij podatka) - *s tem zagotovimo, da se vsaka bralna in vsaka pisalna transakcija križata na vsaj eni lokaciji*
-            - **N<sub>p</sub> > N/2** (zapisovat moramo podatek na več kot polovico lokacij)
+            - **N<sub>p</sub> > N/2** (podatek moramo zapisovati na več kot polovico lokacij)
 
 ## Sočasen dostop do podatkov
-Protkoli omogočajo **izolacijo**
+Protokoli omogočajo **izolacijo**
 - optimistično - šele na koncu izvajanja preverimo za konflikte
 - pesimistično - sproti preverjamo za konflikte
 
@@ -119,7 +119,7 @@ Vsak podatek ima dve oznaki:
 
 pojavijo se lahko konflikti:
 - branje - podatek je po začetku transakcije prepisala druga, mlajša transakcija
-- pisanje - podatek je brala ali pisala mlajša transakijca
+- pisanje - podatek je brala ali pisala mlajša transakcija
 
 ## sočasen dostop v porazdeljenem sistemu
 pri porazdeljenem sistemu imamo več možnosti sočasnega dostopa.
@@ -152,7 +152,7 @@ Pri tem principu se lahko uporablja:
 Uporablja se **NTP - Newtork Time Protocol**, katerega namen je sinhronizacija ur prek interneta z natančnostjo milisekund glede na UTC
 
 Protokol **NTP** predstavlja **varnostne težave**:
-- MITM - ponarejena NTP sporočila lahko povzročijo premik ure na odjemalcu
+- Man In The Middle attack - ponarejena NTP sporočila lahko povzročijo premik ure na odjemalcu
 - Občutljivost na DoS, DDoS
 - Strežnik se lahko zlorabi kot DDoS "ojačevalec" (amplification attack)
 
@@ -204,16 +204,16 @@ Izbrati je potrebno enega od enakih procesov, kjer se morajo vsi procesi o tem *
 
 Ko uporabljamo pravico močnejšega (*bully*), lahko izpade toleriramo.
 - zahteva za volitve
-- odgovorimo s tistim z nižjo številko
+- proces odgovori tistim z nižjo številko
 - kdor je brez odgovora - **zmagovalec**
 
 # Problem bizantinskih generalov
 Problem govori o bizantinskih generalih, ki včasih govorijo resnico oz. ubogajo ukaze, včasih pa tudi **ne**.
 
-Pri Bizantinskem procesu ni pomembno samo to, ali deluje al ne, ampak tudi, ali deluje **pravilno**.
+Pri Bizantinskem procesu ni pomembno samo to, ali deluje ali ne, ampak tudi, ali deluje **pravilno**.
 
 Problem: Kako lahko dosežemo zanesljivo delovanje z asinhronim sistemom z bizantinskimi procesi.
-> pomagati si moramo z **hevrsitičnim** reševanjem
+> pomagati si moramo z **hevrističnim** reševanjem
 
 ## Motivacija
 Zakaj bi se ubadali s tem problemom?
@@ -233,7 +233,7 @@ Generali := procesi | rač. komponente // | pomeni "ali"
 > ni potrebno, da vemo kdo so izdajalci...
 
 ## Reševanje problema in napadanje
-S problemom se lahko spopadamo na različne načine, kjer probamo med generali komunicirtai z uporabo sporočil, pisnih, ustnih, z režijo (*draga komunikacija*), s podpisanimi sporočili...
+S problemom se lahko spopadamo na različne načine, kjer poizkušamo med generali komunicirati z uporabo sporočil, pisnih, ustnih, z režijo (*draga komunikacija*), s podpisanimi sporočili ...
 
 ## Praktična uporaba BGP?
 - Vsako sporočilo, ki ga pošlje konkreten proces, je pravilno dostavljeno
@@ -244,6 +244,6 @@ S problemom se lahko spopadamo na različne načine, kjer probamo med generali k
 ## Zaključek
 BGP rešitve so **potratne** (*režija, podpisi*), hkrati pa se porablja **redundanco**, glasovanje, podpise. Težava nastane, če je več kot 1/3 nekorektnih.
 
-Predstavlja pa **kompromis med zanesljivostjo in zmogljivostjo**-
+Predstavlja pa **kompromis med zanesljivostjo in zmogljivostjo**.
 
 
