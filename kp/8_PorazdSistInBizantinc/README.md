@@ -154,7 +154,7 @@ Uporablja se **NTP - Newtork Time Protocol**, katerega namen je sinhronizacija u
 Protokol **NTP** predstavlja **varnostne težave**:
 - MITM - ponarejena NTP sporočila lahko povzročijo premik ure na odjemalcu
 - Občutljivost na DoS, DDoS
-- Strežnik se lahko zlorabi kot DDoS "ojalevalec"
+- Strežnik se lahko zlorabi kot DDoS "ojačevalec" (amplification attack)
 
 Pri usklajevanju fizične ure imamo problem, da **niti dve uri ne tečeta enako hitro**, hkrati pa tudi sporočila za prenos **potrebujejo določen čas**.
 
