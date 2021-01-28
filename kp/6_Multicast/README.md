@@ -1,16 +1,16 @@
 # Multicast
 Multicast naslavlanje (*razpošiljanje*) omogoča dostavo skupinam ne glede na meje podomrežij
 
-pri multicast načinu naslavlanja pošljemo sporočilo "posebnemu naslovu", ki predstavlja **skupino prejemnikov**, ki posluša pakete, naslovljene na ta naslov.
+pri multicast načinu naslavljanja pošljemo sporočilo "posebnemu naslovu", ki predstavlja **skupino prejemnikov**, ki posluša pakete, naslovljene na ta naslov.
 
 Filtriranje paketov se izvede na omrežnem nivoju.
 
 ## Usmerjanje paketov
-pri multicasu en sam paket usmerjevalniki **razmnožijo** in **posredujejo** preko tistih vmesnikov, na katerih so poslušatelji paketa.
+pri multicastu en sam paket usmerjevalniki **razmnožijo** in **posredujejo** preko tistih vmesnikov, na katerih so poslušatelji paketa.
 
 nekaj izzivov protokola:
 - odkrivanje, kje so prejemniki
-- zahteva dodatnih usmerjevalnih protokolov in posredovanja info o poslušacih
+- zahteva dodatnih usmerjevalnih protokolov in posredovanja info o poslušalcih
 - multicast naslovi nimajo prefixov, zato so v usmerjevalnih tabelah predstavljeni kot posebni vnosi
 - varnost: prisluškovalec se lahko naroči in postane legitimni prejemnik
 
@@ -52,7 +52,7 @@ komunikacija poteka **med odjemalcem in najbližjim multicast usmerjevalnikom**.
 - v2 - **dodana so sporočila za izstop iz skupine**. Usmerjevalnik lahko hitro prekine povezavo nepotrebnega prometa.
 - v3 - zgodijo se večje spremembe v protokolu, kjer med drugim lahko **vmesniki določijo seznam drugih vmesnikov, od koder želijo prejemati promet.**
 
-IGMP sporočulo je skupno dolgo 8 bytov (64 bitov)
+IGMP sporočilo je skupno dolgo 8 bytov (64 bitov)
 
 <img src="slike/igmp.png" style="width:50%">
 
@@ -69,7 +69,7 @@ poznamo posebno vrsto sporočila **Group membership report** (tip 0x22)
 <img src="slike/igmprep.png" style="width:50%;border-radius:.5rem">
 
 ### Prijava na vir
-1. za pridružitev skupini se pošlje GMR sporočio z vrednostjo TTL=1 (dostava samo najbližjemu usmerjevalniku)
+1. za pridružitev skupini se pošlje GMR sporočilo z vrednostjo TTL=1 (dostava samo najbližjemu usmerjevalniku)
 2. Usmerjevalnik sporoči sosednjim usmerjevalnikom, da ima novega naročnika.
     - uporablja se **RPL** (*Reverse Path Lookup*) algoritem, ki nam omogoči, da zavržemo vse pakete, ki pridejo od usmerjevalnikov, ki *se ne povezujejo* z izvorom paketa *po najbližji poti*
     - usmerjevalniki uporabljajo posebne usmerjevalne protokole za multicast promet (PIM-SM *Protocol Independet Multicast - Sparse Mode*)
@@ -80,7 +80,7 @@ To je protokol za **IPv6** multicast promet in ima enako funckionalnost kot IGMP
 ## Multicast drevesa
 multicast paketi se gibljejo po drevesu, kjer drevo lahko optimizira potovanje na z različnimi ***kriteriji***:
 - skupna dolžina poti (*število hopov*) vseh datagramov
-- najkrajša ppot za vsak datagram posebej (*minimalno vpeto drevo*)
+- najkrajša pot za vsak datagram posebej (*minimalno vpeto drevo*)
 
 Naloga usmerjanja je **najti drevo povezav**, ki povezuje vse usmerjevalnike v **isti multicast skupini**. 
 
@@ -109,7 +109,7 @@ lahko:
 usmerjevalni protokoli skrbijo za oglaševanje skupin v omrežju in jih delimo glede na 2 **kriterija** (*skupaj 4 skupine*)
 - **razpršeno / gosto** (*sparse-mode / dense-mode*)
     - *sparse-mode* - posamezna vozlišča zahtevajo vključitev v drevo (*pull princip*)
-    - *dense-mode* - multicast pakete razpošljemo po vsem omrežju, usmerjevalniki se odjavlajo, če so nepotrebni (*push princip*)
+    - *dense-mode* - multicast pakete razpošljemo po vsem omrežju, usmerjevalniki se odjavljajo, če so nepotrebni (*push princip*)
 - **znotraj domene / med domenami** (*intradomain / interdomain*)
 
 ## Protokol PIM (*Protocol Independent Multicast*)

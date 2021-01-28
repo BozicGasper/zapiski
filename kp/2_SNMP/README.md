@@ -54,8 +54,8 @@ Proces iskanja napak v omrežju
 Upravljanje konfiguracij na določenih omrežnih napravah, ki določajo obnašanje omrežja, lahko prakticiramo na različne načine:
 - namestitev novih naprav ali programov
 - spremljanje sprememb v konfiguraciji (kdo, kdaj, zakaj spreminja)
-- razveljavanje sprememb konfiguracije
-- uprabljanje sprememb konfigurcaije
+- razveljavljanje sprememb konfiguracije
+- uporabljanje sprememb konfigurcaije
 ### Upravljanje varnosti
 To je proces nadzora dostopa do internih podatkov na omrežju. Izvajamo naslednje storitve:
 - upravljanje s skrivnimi ključi
@@ -96,7 +96,7 @@ MIB nam pove, katere podatke lahko dobimo o posamezni napravi
 
 Poznamo 3 različne vrste MIB-ov:
 - Standardni MIB - najpomembnejše naprave/funckije
-- Eksperimentalni MIB -
+- Eksperimentalni MIB - novorazviti, kandidati za standardne
 - Proizvajalčev MIB - dodatne funkcionalnosti in specifične naprave
 
 ### Skupine MIB
@@ -106,17 +106,17 @@ Poznamo 3 različne vrste MIB-ov:
 - **smmp** - *info o delovanju SNMP*
 - **tcp, udp** - *info o delovanju TCP in UDP na sistemu*
 - ...
-#### MIB -System
+#### MIB - System
 - sysDescr
 - sysObjectID
 - sysUpTime
 - sysName
 - sysLocation
 - sysServices
-#### MIB -Interfaces:
+#### MIB - Interfaces:
 zapise vsebuje tabela **ifTable**:
 - ifDescr, ifType - *opis in tip*
-- ifMtu, ifPhysAddres, ifSpeed - *MTU, strojni naslvo in hitrost*
+- ifMtu, ifPhysAddres, ifSpeed - *MTU, strojni naslov in hitrost*
 - ifInUcastPkts, ifOutUcastPkts - *unicast paketi*
 - IfInNUcastPkts, ifOutNUcastPkts - *ne-unicast paketi*
 - ifInDiscards, ifOutDiscrads - *zavrženi paketi*
@@ -204,7 +204,7 @@ poznamo dva načina izvajanja protokola:
 - zahteva-odgovor (request-response) - branje in nastavljanje vrednosti - **"polling"**
     - ponavadi upravljalska aplikacija periodično pošilja poizvedbe do agenta.
 - obvestila (trap message) - obvestila o dogodkih - **"trap"**
-    - agent pošlje obvestila upravilteju, brez da bi ta to zahteval. Past sprejme upravljalksa aplikacija, ki se lahko odzove na različne načine:
+    - agent pošlje obvestila upravitelju, brez da bi ta to zahteval. Past sprejme upravljalska aplikacija, ki se lahko odzove na različne načine:
         - dodatni polling
         - sprejem in zapis
         - ignoriranje
@@ -233,11 +233,11 @@ Implementacija SNMP protokola mora reševati težave
 <img src="slike/snmpoblika.png" style="border-radius:.5rem">
 </div>
 
-Version - verzija SNMP protokola
-Destination party - identifikator pošiljatelja
-Source Party - identifikator prejemnika
-Context - definira množico MIB, ki je dosegljiva
-PDU polja - glavna vsebina sporočila (odvisno od tipa sporočila)
+Version - verzija SNMP protokola  
+Destination party - identifikator prejemnika  
+Source Party - identifikator pošiljatelja  
+Context - definira množico MIB, ki je dosegljiva  
+PDU polja - glavna vsebina sporočila (odvisno od tipa sporočila)  
 
 ### zahteva-odgovor (*request-response*)
 
@@ -245,7 +245,7 @@ PDU polja - glavna vsebina sporočila (odvisno od tipa sporočila)
 <img src="slike/snmpreqres.png" style="border-radius:.5rem;width:50%">
 </div>
 
-### zahteva-odgovor (*request-response*)
+### obvestilo (*trap*)
 
 <div style="padding:1rem">
 <img src="slike/snmptrap.png" style="border-radius:.5rem;width:50%">
@@ -259,7 +259,7 @@ uporablja se zgoščanje sporočila s ključem, ki ga poznata pošiljatelj in pr
 ### Zaščita proti ponovitvi že opravljene komunikacije (replay attack)
 uporaba **enkratnih žetonov**, kjer mora pošiljatelj kodirati sporočilo glede na žeton, ki ga definira **prejemnik**.
 ### Nadzor dostopa
-Nadzor dostopa se izvaja na osnovi **uporabniških imen**, kjer pravice določajo, kateri uporabniki lahko berejo/nastavjajo katere konfiguracije.
+Nadzor dostopa se izvaja na osnovi **uporabniških imen**, kjer pravice določajo, kateri uporabniki lahko berejo/nastavljajo katere konfiguracije.
 
 ## Kodiranje vsebine PPE
 cilj je kodirati vsebino tako, da bo **razumljiva na vseh platformah**. Za to potrebujemo enotni način ali nek **predstavitveni nivo** teh podatkov.

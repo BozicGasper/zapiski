@@ -28,7 +28,7 @@ Model protokola predstavimo s **končnimi avtomati**, kjer ima vsak proces svoj 
 
 <img src="slike/avtomat.png" width="50%" style="border-radius:0.5rem">
 
-V tem primeru je stanje X **začetno stanje**, stanje **Y** pa še eno dodatno stanje v avtomatu, dogodek **+p(B)** pa predstavlja možen **prehod** med stanji, ki se zgodi, ko bo proces na sliki **prejel** (+) sporočilo **p** od nekega drugega proces **B**.
+V tem primeru je stanje X **začetno stanje**, stanje **Y** pa še eno dodatno stanje v avtomatu, dogodek **+p(B)** pa predstavlja možen **prehod** med stanji, ki se zgodi, ko bo proces na sliki **prejel** (+) sporočilo **p** od nekega drugega procesa **B**.
 
 ##### Naloga (nadaljevanje zgornjega primera)
 
@@ -85,13 +85,13 @@ V tem primeru po dogodku **A: -p(B)***, kjer A odda sporočilo p do procesa B, p
 
 V naslednjem koraku se lahko zgodijo glede na **trenutno globalno matriko stanj**, kjer je **A** v stanju **P** po oddaji **p**, **B** pa je še vedno v stanju **N**, ker sporočila **p** *še ni sprejel*.
 
-V primeru, da iz začetnega stanja obravnavamo drugega možnega kandidata, in sicer dogodek, kjer **B** odda sporočilo **p** do procesa **A**, lahko opazimo, da je moženo da pridemo v že znano stanje (stanji 4 in 5, ki se pojavita že v levem podrevesu - glej prejšno sliko)
+V primeru, da iz začetnega stanja obravnavamo drugega možnega kandidata, in sicer dogodek, kjer **B** odda sporočilo **p** do procesa **A**, lahko opazimo, da je možno da pridemo v že znano stanje (stanji 4 in 5, ki se pojavita že v levem podrevesu - glej prejšno sliko)
 
 <img src="slike/moznostCikla.png" style="width:50%;border-radius:.5rem">
 
-Pisajnu nepotrebnih cikolv se izognemo tako, da napišemo številko stanja, ki bi sledilo po dogodku in tako ne potrebujemo nadaljevati tega poddrevesa.
+Pisanju nepotrebnih ciklov se izognemo tako, da napišemo številko stanja, ki bi sledilo po dogodku in tako ne potrebujemo nadaljevati tega poddrevesa.
 
-Če se podamo naprej razvijanju levega poddrevesa, lahko vidimo razlišne primere napak in nadaljevanj stanj. Stanji 7 in 8 se nadaljujeta še naprej, ampak jih zaradi namena konzervativne razlage primera ne bomo obravnavali, povemo pa lahko, da se razivjeta po istem principu kot ostali.
+Če se podamo naprej razvijanju levega poddrevesa, lahko vidimo različne primere napak in nadaljevanj stanj. Stanji 7 in 8 se nadaljujeta še naprej, ampak ju zaradi namena konzervativne razlage primera ne bomo obravnavali, povemo pa lahko, da se razvijeta po istem principu kot ostali.
 
 <img src="slike/spodnjinivo.png" style="border-radius:.5rem">
 
@@ -114,7 +114,7 @@ Imamo procese A, B, in C, kjer velja naslednje:
 
 <img src="slike/protokol3procesi.png" style="border-radius:.5rem">
 
-Sedaj lahko na podalgi uspešno definiranih modelov procesov zgradimo drevo možnih stanj, kjer bo začetno globalno stanje (in vsa nadaljna stanja) sedaj matrika **3x3** namesto 2x2 kot v prejšnem primeru. Vsi procesi bodo na začetku (kot je razvidno iz modelov) v stanju **N** (Nepovezan):
+Sedaj lahko na podlagi uspešno definiranih modelov procesov zgradimo drevo možnih stanj, kjer bo začetno globalno stanje (in vsa nadaljnja stanja) sedaj matrika **3x3** namesto 2x2 kot v prejšnjem primeru. Vsi procesi bodo na začetku (kot je razvidno iz modelov) v stanju **N** (Nepovezan):
 
 <img src="slike/zacetno3.png" style="height:10rem;border-radius:.5rem">
 
@@ -132,7 +132,7 @@ Recimo da imamo procesa A in B, kjer sta oba avtomata **simetrična**, komunikac
 - drugi nato pošlje neko poljubno število prvemo s sporočilom **n** ("number")
 - prvi nato potrdi, da je sprejel sporočilo tako, da pošlje drugemo nazaj sporočilo **a** ("accept")
 
-izjema hrtane vzpostavitve:
+izjema hkrtane vzpostavitve:
 
 če pride do tega, da procesa zahtevo vzpostavita "naenkrat", do tega stanja je možno priti v drevesu globalnih stanj, prevlada tisti, ki je poslal večje število. Če sta števili enaki, se celotna zveza poruši.
 
@@ -146,7 +146,7 @@ Dodati je potrebno možnost sprejema **c** sporočila s strani procesa B, potem 
 
 <img src="slike/konflikt.png" style="height:20rem;border-radius:.5rem">
 
-Ustavirmo novo stanje **s5**, kjer bomo izpeljeli reševanje konflikta z preprosto izmenjavo števil
+Ustvarimo novo stanje **s5**, kjer bomo izpeljali reševanje konflikta z preprosto izmenjavo števil
 
 <img src="slike/resevanjekonflikta.png" style="height:20rem;border-radius:.5rem">
 
@@ -160,11 +160,11 @@ Osvežimo spomin: Ob hkratni vzpostavitvi povezave (c):
 - prevlada tisti, ki je **poslal** večje število n
 - se povezava poruši, če sta števili enaki
 
-lokalni dogodek **#moj**: *Torej, če bo prevladalo število, ki ga je posal A, potem se bo avtomat nadaljeval v stanju **s4**, ker bo prevladal klic od **A** do **B**, ki ga je začel **A**.* 
+lokalni dogodek **#moj**: *Torej, če bo prevladalo število, ki ga je poslal A, potem se bo avtomat nadaljeval v stanju **s4**, ker bo prevladal klic od **A** do **B**, ki ga je začel **A**.* 
 
 lokalni dogodek **#njegov**: *V nasprotnem primeru, torej da je večje število, ki ga je poslal **B**, se bo izvajanje nadaljevalo v stanju **s2**, ki je posledica klica **B** do **A**, kjer je **B** vzpostavitelj povezave.*
 
-lokalni dogodek **#enak**: *V primeru, da imata števili enako vrednost, se bo povezava porušila ( nadaljevanje izvajanje v začetnem stanju **s0** ).*
+lokalni dogodek **#enak**: *V primeru, da imata števili enako vrednost, se bo povezava porušila ( nadaljevanje izvajanja v začetnem stanju **s0** ).*
 
 <img src="slike/lokalni.png" style="height:20rem;border-radius:.5rem">
 
@@ -201,7 +201,7 @@ V primeru dogodka A: -p(B), kjer **A** odda sporočilo **p** procesu **B**, se b
 
 Poanta je v tem, da v nadaljevanju pridemo do stanja, kjer so vse sprejemne vrste procesov sproščene (cilj prioritete sprejemanja).
 
-S tem se uporabo prioritete sprejema izničimo možnost **napake polne vrste**.
+Z uporabo prioritete sprejema tako izničimo možnost **napake polne vrste**.
 
 ### Hierarhija procesov
 Če uporabljamo sistem, kjer je določena neka hierarhija procesov, lahko le-to definiramo na dva načina:
@@ -223,9 +223,8 @@ S tem se uporabo prioritete sprejema izničimo možnost **napake polne vrste**.
         <img src="slike/hlestvica.png" style="border-radius:.5rem">
     </div>
 
-    > v tem primeru določimo lestvico komuniciranja C B A, ki določa da lahko **C** izvaja dogodke le proti **B**, torej **C: -x(B)** in **C: +x(B)**, da lahko **A** izvaja dogodke le proti **C**, torej **A: -x(C)** in **A: +x(C)** ter da lahko **B** izvaja le dogodke protu **C**
+    > v tem primeru določimo lestvico komuniciranja C B A, ki določa s katerim drugim procesom naj komunicirajo posamezni procesi.  
+    **C** tako vedno izbere **B** namesto **A** (**C: -x(B)** in **C: +x(B)**), ker ima **B** večjo prioriteto v lestvici od **A**. **A** vedno izbere **C** namesto **B** (**A: -x(C)** in **A: +x(C)**), ker ima **C** večjo prioriteto v lestvici kot **B**, in **B** vedno izbere **C** namesto **A**.
 
-    >***nism fix ce je ta tazadna razlaga pravilna, ne dojamem tega koncepta da je lestvica C-B-A, in pol se tko črta. Treba prašat profesorico.***<br>
-    > \- avtor zapiskov
 
 

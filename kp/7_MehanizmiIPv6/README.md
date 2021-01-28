@@ -48,8 +48,8 @@ ISP-ju je dodeljen poseben blok zasebnih naslovov (*preprečevanje konflikotv*)
 
 <img src="slike/nat44.png" style="border-radius:.5rem">
 
-### Razred2: Tunel pri uporabniko
-Tukaj je IPv4 promet **tuneliran** v pakete IPv6 od CPE do prehoda, ki izvaja NAPT44.
+### Razred2: Tunel pri uporabniku
+Tukaj je IPv4 promet **tuneliran** v pakete IPv6 od CPE (customer-premises equipment) do prehoda, ki izvaja NAPT44.
 
 Cilj je odpraviti dvojni NAT, tako da je NAT samo pri ponudniku, hkrati pa preprečimo konflikt v naslovih.
 
@@ -79,9 +79,9 @@ NAPT je v CPE, kar omogoča **lahek prehod**.
 <img src="slike/tbs.png" style="border-radius:.5rem">
 
 ### Razred6: Tuneliranje s stanji
-za vsako dodelitev naslova CPE-ju je trepa na prehodu **vzdrževati stanje**.
+za vsako dodelitev naslova CPE-ju je potrebno na prehodu **vzdrževati stanje**.
 
-Potrebujemo protokol za obveščanje CPE o naslvih (DHCP, PCP, TR69)
+Potrebujemo protokol za obveščanje CPE o naslovih (DHCP, PCP, TR69)
 
 Princip je podoben **razredu 5**, le da se informacija o naslovih IPv4 in št. vrat ne zakodira v IPv6 naslov, ampak zato prehod **vzdržuje tabelo povezav (*binding table*)**
 
@@ -115,7 +115,7 @@ Problem **skalabilnosti** - veliko imamo podatkov o stanju, povzroča počasnost
 ## Težave mehanizmov brez stanj
 IPv4 naslov mora biti zakodiran v IPv6 naslov, kjer je potrebno vzdrževati pravila o preslikavah, **vsaka mala sprememba v teh pravilih pa se mora propagirati**.
 
-Mehanizem **ne podrpira raztresenega dodeljevanja** IPv4 naslovov
+Mehanizem **ne podpira raztresenega dodeljevanja** IPv4 naslovov
 
 ## Težave s tuneliranjem
 Pri tuneliranju se pojavi težava pri MTU in fragmentacij. 
@@ -125,7 +125,7 @@ Naprave kot so IDS in IPS morajo **izvajati dekapsulacijo**
 ## Težave z dvojnim prevajanjem
 Potreben **ponoven izračun kontrolnih vost** IPv4, ICMP, TCP, UDP
 
-Nekateri IPv4 **podatki se lahko izgubijo**.
+Nekateri IPv4 **podatki se lahko izgubijo** ker IPv4 in IPv6 ne uporabljata enakih polj.
 
 ## Težave z dodeljevanjem naslovov (NAT)
 Če NAT podpira stanja, je potrebno stanje *shranjevati*: problem skalabilnosti, prostora, sinhronizacije stanj med napravami...
