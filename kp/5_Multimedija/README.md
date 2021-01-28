@@ -1,6 +1,6 @@
 # Multimedija in večpredstavnost v omrežju
 ## Multimedija in kvaliteta storitev (QoS)
-multimedijske aplikacije servirajo zvok ali sliko preko omrežja. Omrežje nudi aplikacijam **določen nivo zmogljivosti, ki jih potrebujejo za delovanje** - **Kvaliteta storitev**.
+Multimedijske aplikacije servirajo zvok ali sliko preko omrežja. Omrežje nudi aplikacijam **določen nivo zmogljivosti, ki jih potrebujejo za delovanje** - **Kvaliteta storitev**.
 
 ## Multimedijske (MM) aplikacije
 poznamo več različnih **razredov** multimedijskih aplikacij:
@@ -8,16 +8,16 @@ poznamo več različnih **razredov** multimedijskih aplikacij:
 - Živo pretakanje (live streaming)
 - Interaktivno pretakanje (realno časovno "*real-time*")
 
-MM aplikacije so lahko 
+MM aplikacije so 
 - **občutljive na zakasnitve** (*delay sensitive*)
     - izvor-ponor (*end-to-end delay*)
     - trepetanje (*dely jitter*)
 - **tolerantne do izgub** (*loss tolerant*)
 
 ### Pretakanje shranjenih podatkov (*stored streaming*)
-podatki so **shranjeni na izvoru** in se **pošiljajo odjemalcu**-
+podatki so **shranjeni na izvoru** in se **pošiljajo odjemalcu**
 
-*def*: **Pretakanje** (*streaming*) je aktivnost, kjer odjemalec začne predvajati podatke **že preden se vsi prenesejo**
+*def*: **Pretakanje** (*streaming*) je aktivnost, kjer odjemalec začne predvajati podatke **še preden se vsi prenesejo**
 > Netflix, YouTube...
 
 ### Pretakanje živih podatkov (*live stream*)
@@ -31,8 +31,7 @@ Idealno je brez zakasnitev, a to je mogoče le v teoriji, idealno je zakasnitev 
 > IP telefonija, video konference...
 
 ## MM preko interneta
-protokoli TCP/UDP/IP so najbolša mo
-na storitev (*best-effort service*), ki **ne garantira zakasnitev in izgub**.
+protokoli TCP/UDP/IP so najbolša možna storitev (*best-effort service*), ki **ne garantira zakasnitev in izgub**.
 
 MM aplikacije preko interneta zahtevajo **garancijo kvalitete** (**QoS**), zagotovimo jih lahko z različnimi tehnikami, uporabljenimi na *aplikacijskem nivoju*
 
@@ -40,7 +39,7 @@ MM aplikacije preko interneta zahtevajo **garancijo kvalitete** (**QoS**), zagot
 ### Sedanje stanje (*best-effort services*)
 kompleksnost uvedbe je **minimalna**, kjer moramo po potrebi *povečevati pasovno širino*, *dodati podporo na aplikacijskem nivoju*, *CDN*, *multicasting*, ...
 ### Diferencirane storitve (*differentiated services - Differential QoS*)
-kompleksnost uvedbe je **srednja**, kjer je potrebno *krmiljenje* in *razvrščanje*, potrebna pa so tudi že manjše spremembe v infrastrukturi omrežja
+kompleksnost uvedbe je **srednja**, kjer je potrebno *krmiljenje* in *razvrščanje*, potrebne pa so tudi že manjše spremembe v infrastrukturi omrežja
 ### Integrirane storitve (*integrated services - Guaranteed QoS*)
 kompleksnost uvedbe je **visoka**, saj so potrebne velike spremembe v internetni infrastrukturi, kjer morajo biti aplikacije sposobne rezervirati pasovno širino od izvora do ponora. 
 
@@ -53,29 +52,29 @@ Kompresija podatkov se uporablja za hitrejši prenos od strežnika do odjemalca.
 Za zagotavljanje kar najboljše možne storitve se uporabljajo različne tehnike:
 - medpomnenje pri odjemalcu (*client buffering*)
 - uporaba **UDP** namesto **TCP**
-- več kodiranj za isti posnetek
+- več kodiranj za isti posnetek (različna kvaliteta)
 - kompresijo
 
 **predvajalnik** MM vsebin naj omogoča
 - odstranjevanje trepetanja
-- dekompresija
+- dekompresijo
 - kompenziranje napak
-- GUI s kontorlami
+- GUI s kontrolami
 
 ## Pristopi k pretakanju
-### najprerostejši pristop
+### najpreprostejši pristop
 zvoka in videa **ne pretakamo**, ampak se shranjene datoteke na strežniku preko HTTP povezave prenesejo do odjemalčevega brskalnika, ki jih šele nato pošlje v predvajalnik
 
 <img src="slike/simple.png" style="width:50%;border-radius:.5rem">
 
 > posledica je dolga zakasnitev pred predvajanjem
 ### pristop s pretakanjem
-Brskalnik dobi **metapodatke** preko HTTP zahteve, ter jih posreduje predvajalniku, ki nato kontaktira strežnik. Po uspešni vzopostavljeni povezavi predvajalnika in strežnika lahko MM aplikacija predvaja podatke direktno v predvajalnik
+Brskalnik dobi **metapodatke** preko HTTP zahteve, ter jih posreduje predvajalniku, ki nato kontaktira strežnik. Po uspešni vzpostavljeni povezavi predvajalnika in strežnika lahko MM aplikacija predvaja podatke direktno v predvajalnik
 
 <img src="slike/pretakanje.png" style="width:50%;border-radius:.5rem">
 
 ### pristop s pretočnimi strežniki
-Podatki se hranijo na ločenem strežniku, od katerega jih potem predvajalnik prenaša. Med tem strežnikom in predvajalnikom je možna uprava tudi drugih protokolov. uporabljamo lahko tudi UDP in TCP.
+Podatki se hranijo na ločenem strežniku, od katerega jih potem predvajalnik prenaša. Med tem strežnikom in predvajalnikom je možna uporaba tudi drugih protokolov (UDP in TCP), ne samo HTTP.
 
 ## Medpomnenje pri odjemalcu
 **Medpomnenje (*buffering*)** pri odjemalcu prinese zakasnitev predvajanja zaradi **kompenziranja zakasnitev omrežja** in **trepetanja zakasnitev**.
@@ -85,7 +84,7 @@ Podatki se hranijo na ločenem strežniku, od katerega jih potem predvajalnik pr
 
 ## UDP ali TCP?
 ### UDP
-strežnik pošilja podatke s hitrostjo, ki je primerna za dojemalca (*drain rate*) in tako ponuja **krajšo začetno zakasnitev predvajanja**. 
+strežnik pošilja podatke s hitrostjo, ki je primerna za odjemalca (*drain rate*) in tako ponuja **krajšo začetno zakasnitev predvajanja**. 
 
 Napake se pri uprabi protokola UDP popravljajo le, če je za to dovolj časa.
 ### TCP
@@ -97,7 +96,7 @@ Da zagotovimo pretok brez težav, naj bo povprečen TCP pretok približno 2x ve�
 
 
 ## RTSP (*Real-Time Streaming Protocol*)
-to je protokol **aplikacijske plasti**, ki se upravlja pri komunikaciji *odjemalec-strežnik* in poleg podatkovnega kanala uporablja tudi posebni kontrolni kanal (*tako kot FTP*).
+to je protokol **aplikacijske plasti**, ki se uporablja pri komunikaciji *odjemalec-strežnik* in poleg podatkovnega kanala uporablja tudi posebni kontrolni kanal (*tako kot FTP*).
 
 Uporabnik lahko kontrolira predvajanje (*stop, start, pavza, fast-forward, prevrti nazaj, ...*).
 
@@ -118,7 +117,7 @@ Pri tem pristopu je cilj **minimizirati zakasnitve pri čim manjših izgubah**, 
 
 ## okrevanje po izgubah paketov
 ### FEC (*Forward Error Correction*)
-Princip FEC odjemalcu pošulja tudi **redundantne podatke**, iz katerih lahko rekonstruiramo izgubljene pakete.
+Princip FEC odjemalcu pošilja tudi **redundantne podatke**, iz katerih lahko rekonstruiramo izgubljene pakete.
 
 Pri zvoku naprimer lahko dodamo zvok *slabše ločljivosti*, ki se uporabi pri morebitni izgubi boljše ločljivosti.
 
@@ -130,14 +129,14 @@ V primeru, da se paket izgubi, imamo še vedno večino posameznega kosa.
 Metoda **izniči redundančnost**, a poveča zakasnitev predvajanja.
 
 ### Popravljanje pri odjemalcu
-Napake lahko na odjemalcu poskušamo popraviti z raličnimi algoritmi za rekonstrukicjo, kjer poskušamo **manjkajoči paket nadomestiti z njemu podobnim nadomestkom.**
+Napake lahko na odjemalcu poskušamo popraviti z različnimi algoritmi za rekonstrukcijo, kjer poskušamo **manjkajoči paket nadomestiti z njemu podobnim nadomestkom.**
 
 Metoda deluje dobro le, če so izgube **res majhne in redke**.
 
 ## Protokoli za podporo realnočasovnih interaktivnih aplikacij
 - RTP - *Real Time Protocol*
 - RTCP - *Real Time Control Protocol*
-- SIB - *Session Initiation Protocol*
+- SIP - *Session Initiation Protocol*
 
 ## Diferencirane storitve
 Uvedba **razredov storitev**, kjer pakete razdelimo v razrede in posledično omrežje obravnava promet glede na razred.
