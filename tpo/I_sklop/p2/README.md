@@ -327,7 +327,7 @@ Uporablja enako formulo kot **zgodnji model načrta** ampak namesto 7 množitelj
 - ocena enakovrednega tevila vrstic nove kode
 - ocen števila vrstic kode, ki jih je treba spremeniti glede na spremembe zahtev
 
-**B** je odvisen od 5 faktorjev:
+**B** je odvisen od 5 dejavnikov:
 - arhitektura/odprava tveganj
 - prilagodljivost razvoja
 - precendenčnost
@@ -335,3 +335,8 @@ Uporablja enako formulo kot **zgodnji model načrta** ampak namesto 7 množitelj
 - povezanost ekipe
 
 ocene rangirajo od 1 do 5 kjer je 1 zelo visoka in 5 zelo nizka
+
+**B** se nato izračuna po formuli:
+
+( **seštevek ocen dejavnikov** / 100 ) + 1.01
+
