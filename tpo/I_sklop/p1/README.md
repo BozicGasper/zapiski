@@ -1,5 +1,5 @@
 # 1. Uvod v programsko inženirstvo
-## 1.1
+## 1.1 Uvod
 ### 1.1.1 Programsko inženirstvo in izdelava programske opreme
 Ekonomije so odvisne od programske opreme, vse več sistemov za krmiljenje uporablja programsko opremo, odhodki za programsko opremo predstavljajo znaten delež BDP vseh razvitih držav.
 
