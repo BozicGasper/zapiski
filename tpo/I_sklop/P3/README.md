@@ -149,7 +149,7 @@ Stroške ponovne izdelave lahko efektivno zmanjšamo z:
 
 ## 4.2 Obvladovanje spreminjajočih zahtev
 Spreminjajoče zahteve lahko obvladujemo z:
-- **protoripiranjem sistema** - *različice se razvijajo hitro, z namenom, da se preverijo zahteve stranke.
+- **protoripiranjem sistema** - *različice se razvijajo hitro, z namenom, da se preverijo zahteve stranke.*
 - **postopna dostava** - *posamezni inkrementi sistema se dostavijo stranki za pridobitev komentarjev in eksperimentiranje*
 
 ## 4.3 Prototipiranje programske opreme
