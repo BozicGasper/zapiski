@@ -237,7 +237,6 @@ opredeljenih je 5 ravni:
 - **optimizirana raven** - *opredeljene in uporabljene **strategije za izboljšanje procesov**
 
 # 6 Zaključne ugotovitve
-
 - Proces izdelave programske opreme predstavljajo aktivnosti, ki so vključene v izdelavo sistema programske opreme. Procesni modeli izdelave programske opreme so abstraktne predstavitve teh procesov.
 - Splošni procesni modeli opisujejo organizacijo procesov izdelave programske opreme.
     - Primeri teh splošnih modelov so **slapovni razvoj, inkrementalni razvoj in razvoj, usmerjen v ponovno uporabo**.
