@@ -17,6 +17,7 @@ opišemo lahko tudi z:
 
 ## 1.3 Načrtovalni in agilni procesi
 **načrtovalni procesi** : vse aktivnosti se načrtujejo vnaprej
+
 **agilni procesi** : načrtvoanje je postopno - *lažje spremenimo proces*
 
 # 2 Procesni modeli izdelave programske opreme
@@ -78,7 +79,7 @@ faze:
 # 3 Procesne aktivnosti
 osnovne procesne aktivnosti so:
 - **specifikacija**
-- **razvoj**
+- **načrt in implementacija**
 - **vrednotenje**
 - **evolucija**
 
@@ -149,7 +150,7 @@ Stroške ponovne izdelave lahko efektivno zmanjšamo z:
 
 ## 4.2 Obvladovanje spreminjajočih zahtev
 Spreminjajoče zahteve lahko obvladujemo z:
-- **protoripiranjem sistema** - *različice se razvijajo hitro, z namenom, da se preverijo zahteve stranke.
+- **protoripiranjem sistema** - *različice se razvijajo hitro, z namenom, da se preverijo zahteve stranke.*
 - **postopna dostava** - *posamezni inkrementi sistema se dostavijo stranki za pridobitev komentarjev in eksperimentiranje*
 
 ## 4.3 Prototipiranje programske opreme
