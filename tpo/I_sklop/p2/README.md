@@ -112,7 +112,13 @@ Motivacija je kompleksen koncept, kjer v splošnem temelji na:
 - samousmerjeni ljudje - motivirani z osebnim uspehom
 
 #### 2.2.2.5 Učinkovitost skupine
-na učinkovitost skupine vplivajo:
+na učinkovitost skupine vplivajo:  
+- ljudje v skupini
+- organizacija skupine
+- tehnična in vodstvena komunikacija
+
+#### 2.2.2.6 Komunikacija v skupini
+na učinkovitost komunikacije vplivajo:
 - velikost skupine
 - struktura skupine
 - sestava skupine
@@ -168,13 +174,13 @@ določa:
 - **časovni načrt za izvedbo**
 
 uporaba principa **W<sup>5</sup>HH**:
-- Zakaj se sistem razvija?
-- Kaj bo narejeno?
-- Kdaj bo to narejeno?
-- Kdo je odgovoren za posamezno funkcijo?
-- Kje se organizacijsko nahajajo?
-- Kako bo delo opravljeno s tehničnega upravljalskega vidika?
-- Koliko sredstev je potrebnih?
+- Zakaj se sistem razvija? (Why)
+- Kaj bo narejeno? (What)
+- Kdaj bo to narejeno? (When)
+- Kdo je odgovoren za posamezno funkcijo? (Who)
+- Kje se organizacijsko nahajajo? (Where)
+- Kako bo delo opravljeno s tehničnega upravljalskega vidika? (How)
+- Koliko sredstev je potrebnih? (How much)
 
 Projektni načrt ponavadi vključuje:
 - Uvod - *predstavimo cilje in omejitve projekta*
@@ -193,14 +199,14 @@ Načrtovanje projekta je **ITERATIVNI** proces - začne se med **fazo zagona** p
 Predvsem moramo biti **realni** in **ne optimistični**.
 
 #### 3.3.1.2 Zmanjševanje tveganja
-Če obstajajo resne težave pri načrtovanju projekta je treba sprožiti ukrepe da jih omilimo. To lahko povzroči da je potrebno določene stvari še enkrat splanirat in se ponovno posvetovat z delodajalcem oz. stranko.
+Če obstajajo resne težave pri načrtovanju projekta je treba sprožiti ukrepe da jih omilimo. To lahko povzroči da je potrebno potrebno tudi ponovno načrtovanje projekta in ponovno posvetovanje z delodajalcem oz. stranko.
 
 ## 3.4 Časovno načrtovanje projekta
-pri časovnem načrtovanju moramo upoštevat to, da za vsako aktivnost ocenimo, koliko časa bomo potrebovali da jo dokončamo. Aktivnosti oz. naloge so lahko medseboj odvisne druga od druge zato je potrebno določiti tudi v kakšnem časovnem zaporedju se bodo naloge izvajale. Oceniti je potrebno tudi vire, ki so potrebni za izvajanje vsake naloge in lahko vplivajo na časovno zahtevnost naloge. Za vsako aktivnost je treba dodeliti ljudi, ki bodo zanjo zadolženi.
+Pri časovnem načrtovanju moramo upoštevati, da za vsako aktivnost ocenimo, koliko časa bomo potrebovali, da jo dokončamo. Aktivnosti oz. naloge so lahko medseboj odvisne druga od druge, zato je potrebno določiti tudi v kakšnem časovnem zaporedju se bodo naloge izvajale. Oceniti je potrebno tudi vire, ki so potrebni za izvajanje vsake naloge in lahko vplivajo na časovno zahtevnost naloge. Za vsako aktivnost je treba dodeliti ljudi, ki bodo zanjo zadolženi.
 
 <img src="procesCasovnegaNacrtovanja.png">
 
->vedno je pametno v časovno načrtovanje vključit par motečih faktorjev kot je nepredvidljivost, precenjena sposobnost skupine...
+>vedno je pametno v časovno načrtovanje vključiti nekaj motečih faktorjev kot npr. nepredvidljivost, precenjena sposobnost skupine...
 
 ### 3.4.1 Predstavitev časovnega načrta
 Časovni načrt ponavadi predstavimo s temu namenjenimi grafikoni, kjer se najpogosteje uporabljajo vizualizacije
@@ -241,8 +247,8 @@ To je iterativni pristop kjer je programska oprema razvita in dostavljena naroč
 #### 3.5.3.1 Dodelitev nalog
 v fazi načrtovanja nalog se uporabniške zgodbe razčlenijo v razvojne naloge, kjer velja:
 - ena naloga traja približno od 4 do 16 ur
-- razvijalci se sami javlajo, kere naloge bodo naredili
-- vse naloge, o katerih se pogovarjamo so referencirane na trenutno iteraicjo (morajo biti končane v trenutni iteriaciji)
+- razvijalci se sami javljajo, kere naloge bodo naredili
+- vse naloge, o katerih se pogovarjamo so referencirane na trenutno iteracijo (morajo biti končane v trenutni iteraciji)
 
 **prednosti pristopa**:
 - ekipa dobi dober pregled nad delom, ki ga je treba narediti v tej iteraciji
@@ -254,6 +260,10 @@ v fazi načrtovanja nalog se uporabniške zgodbe razčlenijo v razvojne naloge, 
 #### 3.5.3.3 Težave agilnega načrtovanja
 - odvisno je od vključenosti in razpoložljivosti stranke
 - ne poznajo vse stranke koncepta agilnega načrtovanja, zato jih je težje vključiti v igro načrtovanja
+
+#### 3.5.3.4 Prilagodljivost agilnega načrtovanja
+- dobro deluje z majhnimi, stabilnimi razvojnimi skupinami  
+- pri velikih ali geografsko razdeljenih skupinah ali kadar se članstvo v skupini pogosto spreminja, je agilno načrtovanje praktično nemogoče
 
 ## 3.6 Tehnike ocenjevanja
 Ko rabimo ocenit stroške razvoja, lahko uporabimo različne tehnike,
@@ -279,7 +289,7 @@ Stroški ocenjeni kot matematična funkcija (to računa vodja projekta):
 
 Najpogosteje uporabljena lastnost izdelka za oceno stroškov je **obseg kode**.Večina modelov je med seboj podobnih, a večinoma uoprabljajo različne vrednosti za A,B in M
 
-> B in M sta **subjektivni** oceni vodje.
+> B in M sta **subjektivni** oceni ocenjevalca (npr. vodje).
 
 **Na točnost ocene vplivajo:**
 - vključitev ponovno uporabljivih sistemov in komponent
