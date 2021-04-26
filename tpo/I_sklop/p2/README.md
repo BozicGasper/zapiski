@@ -309,7 +309,7 @@ vkljuluje modele, ki omogočajo bolj podrobne ocene programske opreme:
 <img src="cocomoII.png">
 
 #### 3.7.1.1 Model sestave aplikacije
-*se uporablja takrat **ko je programska oprema sestavljena iz obsotječih delov** in je v veliki meri prisotna ponovna uporaba*.
+*se uporablja takrat **ko je programska oprema sestavljena iz obstoječih delov** in je v veliki meri prisotna ponovna uporaba*.
 <img src="modelSestave.png">
 
 #### 3.7.1.2 Zgodnji model načrta
@@ -321,7 +321,7 @@ vkljuluje modele, ki omogočajo bolj podrobne ocene programske opreme:
 
 Poznamo dva pristopa in sicer:
 - ponovna uporaba s pristopom črne škatle - *izvorna koda se ne spreminja in se izračuna ocena potrebnega dela*
-- ponovna uporaba s pristopom bele škatle - *izvorna koda se spremeni in se izračuna ocena obsega, ki je enaka številu vrstic nove izvorne kode. Nato se prilagodi ocena nove izvorne kode.
+- ponovna uporaba s pristopom bele škatle - *izvorna koda se spremeni in se izračuna ocena obsega, ki je enaka številu vrstic nove izvorne kode. Nato se prilagodi ocena nove izvorne kode*
 
 ##### 3.7.1.3.1 Pristop Črne škatle
 <img src="crnaSkatla.png">
@@ -350,3 +350,12 @@ ocene rangirajo od 1 do 5 kjer je 1 zelo visoka in 5 zelo nizka
 
 ( **seštevek ocen dejavnikov** / 100 ) + 1.01
 
+množitelji faktorja **M**:
+- atributi izdelka (zahtevane lastnosti izdelka)
+- računalniški atributi (omejitve strojne platforme)
+- atributi osebja (izkušnje in zmožnosti ljudi)
+- atributi projekta (posebne lastnosti projekta)
+
+#### 3.7.1.5 Trajanje projekta in osebje
+<img src="koledarski_cas.png">
+Potreben čas je neodvisen od števila ljudi, ki delajo na projektu.
