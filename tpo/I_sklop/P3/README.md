@@ -17,6 +17,7 @@ opišemo lahko tudi z:
 
 ## 1.3 Načrtovalni in agilni procesi
 **načrtovalni procesi** : vse aktivnosti se načrtujejo vnaprej
+
 **agilni procesi** : načrtvoanje je postopno - *lažje spremenimo proces*
 
 # 2 Procesni modeli izdelave programske opreme
