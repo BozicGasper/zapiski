@@ -79,7 +79,7 @@ faze:
 # 3 Procesne aktivnosti
 osnovne procesne aktivnosti so:
 - **specifikacija**
-- **razvoj**
+- **načrt in implementacija**
 - **vrednotenje**
 - **evolucija**
 
