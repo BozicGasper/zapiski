@@ -41,7 +41,7 @@ Načrtovanje arhitekture je **ustvarjalni proces**, zato se postopek razlikuje g
 - **Razpoložljivost** - *vključevanje redundantnih komponent in mehanizmov za toleranco pri okvarah*
 - **Vzdržljivost** - *uporaba zamelnjivihkomponent na nizki ravni podrobnosti*
 
-# 3. Pogledi na zasvnovo arhitekture
+# <div id="poglediNaZasnovoArhitekture"> 3. Pogledi na zasvnovo arhitekture </div>
 Sprašujemo se:
 - kateri **pogledi** ali **perspektive** so **uporabne** pri oblikovanju in dokumentiranju sistema?
 - ketere **zapise** oz. **notacije** je treba uporabiti za opis arhitekturnih modelov?
