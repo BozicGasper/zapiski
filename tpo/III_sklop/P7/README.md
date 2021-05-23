@@ -70,7 +70,7 @@ pri načrtovanju in dokumentiranju je treba po navadi **predstaviti več pogledo
 ## 3.1 Predstavitev pogledov na arhitekturo
 Ker z UML ne podpira abstrakcij, primernih za opis sistema na visoki ravni, so nastali opisni jeziki arhitekture (**ADL**), ki pa se ne uporabljajo pogosto.
 
-# 4. Arhitekturni vzorci
+# <div id="arhitekturniVzorci"> 4. Arhitekturni vzorci </div>
 **Vzorec** je sredstvo za predstavitev, izmenjavo in ponovno uporabo znanja.
 
 **Arhitekturni vzorec** je stiliziran opis dobre načrtovalske prakse, ki je preizkušena v različnih okoljih.
