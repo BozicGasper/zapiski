@@ -54,7 +54,7 @@ Agilne metode temeljijo na inkrementiranem razvoju, zato je prehod iz razvoja v 
 
 **Avtomatizirano regresijsko testiranje** je pri spremembah v sistemu še posebej pomembno.
 
-**Spremembe** se lahko izrazijo kot **dodatne uporaniške zgodbe**.
+**Spremembe** se lahko izrazijo kot **dodatne uporabniške zgodbe**.
 
 ### 2.3.1 Težave pri predaji
 Težave pri predaji lahko pridejo v naslednjih scenarijih:
@@ -69,7 +69,7 @@ Težave pri predaji lahko pridejo v naslednjih scenarijih:
 - **Sistemska strojna oprema**, kjer so podedovani sistemi morda razviti za strojno opremo, ki ni več na voljo.
 - **Podporna programska oprema**, kjer so podedovani sistemi mogoče odvisni od vrste programske opreme, ki je zastarela oz. nepodprta.
 - **Aplikacijska programska oprema** zagotavlja poslovne storitve, ki so običajno sestavljene iz številnih aplikacijskih programov
-- **Aplikacijski podatki**, ki jih obdeluje aplikacijski sistem in so lahko neskladni, podvojeni ali shranjeniv različnih podatkovnih bazah
+- **Aplikacijski podatki**, ki jih obdeluje aplikacijski sistem in so lahko neskladni, podvojeni ali shranjeni v različnih podatkovnih bazah
 - **Poslovni procesi**, ki se uporabljajo v podjetju za doseganje doloečnih poslovnih ciljev.
 - **Poslovne politike in pravila** so opredelitve, kako je treba opraviti poslovanje, in omejitve poslovanja.
 
@@ -79,7 +79,7 @@ Težave pri predaji lahko pridejo v naslednjih scenarijih:
 ## 3.3 Zamenjava podedovanega sistema
 **Zamenjava** podedovanega sistema je lahko **tvegana** iz več razlogov:
 - pomankanje specifikacije celotnega sistema
-- testna integracije sistemskih in poslovnih procesov
+- testna integracija sistemskih in poslovnih procesov
 - poslovna pravila, vgrajena v obstoječi sistem, niso dokumentirana
 - razvoj nove programske opreme zamuja ali presega prvotno določen proračun
 
@@ -96,7 +96,7 @@ Spreminjanje podedovanih sistemov je zahtevno in drago:
 Podjetja, ki uporabljajo podedovane siteme, se morajo odločiti za **strategijo razvoja teh sistemov**:
 - popolna opustitev
 - nadaljevanje vzdrževanja
-- prenovs sistema
+- prenova sistema
 - zamenjava sistema
 
 <img src="q1.png" >
@@ -149,7 +149,7 @@ Vzdževanje običajno **ne vključuje večjih sprememb v arhitekturi sistema**.
 <img src="v1.png" >
 
 - **Popravki napak** predstavljajo spreminjanje sistema zaradi napak oz. raznljivosti in odpravljanje pomankljivosti.
-- **Prilagotidev okolju** je vzdrževanje za prilagoditev programske opreme različnim izvajalnim okoljem.
+- **Prilagoditev okolju** je vzdrževanje za prilagoditev programske opreme različnim izvajalnim okoljem.
 - **Dodajanje** in **spreminjanje funkcionalnosti** predstavlja spreminjanje sistema pri izpolnjevanju novih zahtev
 
 ## 4.2 Stroški vzdrževanja
@@ -157,7 +157,7 @@ Vzdževanje običajno **ne vključuje večjih sprememb v arhitekturi sistema**.
 
 Običajno je **dražje dodati nove funkcije v sistem med vzdrževanjem** kot dodajanje enakih funckij med razvojem, kjer:
 - nova ekipa mora razumeti, kateri programi se vzdržujejo
-- ločevanje vzdrževanja in razvoja pomeni, da razvojna ekipa nima motivacije za pisanje programske opreme
+- ločevanje vzdrževanja in razvoja pomeni, da razvojna ekipa nima motivacije za pisanje programske opreme, ki jo je lažje vzdrževati
 - vzdrževanje programov ni priljubljeno
 - s starostjo programov se njihova stuktura poslabša in jih je težje spremeniti
 

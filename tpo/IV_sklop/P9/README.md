@@ -41,7 +41,7 @@ Ne zahtevajo izvajanja sistema, zato se lahko opravijo še **pred** implementaci
 <img src="tpo.png" >
 
 Pri testiranju programske opreme poznamo več **stopenj**:
-- pri **razvojnem testiranju** se sitem preizkuša med razvojem z namenom odkrivanja napak
+- pri **razvojnem testiranju** se sistem preizkuša med razvojem z namenom odkrivanja napak
 - pri **testiranju izdaje** ločena skupina za testiranje preizkusi celotno različico sistema pred izdajo končnim uporabnikom
 - pri **uporabniškem testiranju** uporabniki ali potencialni uporabniki sistema preizkušajo sistem v svojem okolju
 
@@ -55,12 +55,12 @@ Pri testiranju programske opreme poznamo več **stopenj**:
 **Testiranje enot** je proces izolacije posameznih komponent in testiranja napak, kjer **enote** lahko klasificiramo kot:
 - **posamezne funkcije** ali **metode** v okviru objekta
 - **razrede objektov**
-- **sestavljene komponente** z določenimi vmseniki, ki se uporabljajo za dostop do njihove funkcionalnosti
+- **sestavljene komponente** z določenimi vmesniki, ki se uporabljajo za dostop do njihove funkcionalnosti
 
 ### 2.1.1 Testiranje razredov objektov
 **Testiranje razredov objektov** vključuje popolno pokritost razreda s testi: 
 - testiranje vseh operacij, povezanih z objektom
-- nastavitev in pregledovanje vse atributov objekta
+- nastavitev in pregledovanje vseh atributov objekta
 - izvajanje objekta v vseh možnih stanjih
 
 ### 2.1.2 Testiranje vremenske postaje
@@ -69,7 +69,7 @@ Pri testiranju programske opreme poznamo več **stopenj**:
 ### 2.1.3 Samodejno testiranje
 Kjer je le mogoče, uporabimo **samodejno testiranje**, ki je sestavljeno iz treh delov:
 - **namestitev**, kjer inicializiramo sistem s testnim primerom, in sicer določimo vhode ter pričakovane izhode
-- **izvajanje**, kjer pokličemo objekt ali metodo, ki jo želimo potestirato
+- **izvajanje**, kjer pokličemo objekt ali metodo, ki jo želimo testirati
 - **potrjevanje**, kjer primerjamo rezultat klica s pričakovanim rezultatom. Če je prisotno ujemanje, je test uspešen, sicer je neuspešen. 
 
 ## 2.2 Izbira testnih primerov
@@ -94,7 +94,7 @@ Pri **testiranju particij** so vhodni podatki in izhodni rezultati pogosto iz ra
 - izbira vhodov, ki prisilijo sistem, da zgenerira vsa možna sporočila o napakah
 - uporaba vhodnih podatkov, ki povzročijo prekoračitev pomnilnika
 - ponovitev enakih vhodnih podatkov ali nizov vhodnih podatkov
-- generiranje neveljanvnih izhodnih rezultatov
+- generiranje neveljavnih izhodnih rezultatov
 
 Pogosto uporabljena smernica je **testiranje zaporedij**
 
@@ -108,7 +108,7 @@ Poznamo več vrst vmesnikov:
 - **vmesnik parametrov** - *podatki se prenašajo od ene metode ali procedure do druge*
 - **skupni pomnilniški vmesnik** - *pomnilniški blok se deli med procedurami ali funkcijami*
 - **postopkovni vmesnik** -  *podsistem združuje nabor procedur, ki kliče drug podsistem*
-- **vemsnik za posredovanje sporočič** - *podsistemi zahtevajo storitve drugih podsistemov*
+- **vmesnik za posredovanje sporočil** - *podsistemi zahtevajo storitve drugih podsistemov*
 
 <img src="test2.png" >
 
@@ -124,7 +124,7 @@ Poznamo več vrst vmesnikov:
 Med testiranjem sistema se lahko z novo razvitimi komponentami integrirajo komponente za večkratno uporabo in gotovi sistemi; nato pa se testira celoten sistem.
 
 ### 2.4.2 Testiranje primerov uporabe
-Primeri uporabe, ki so nastali za identifikaijo interakcije s sistemom, se lahko uporabijo za osnovo testiranja sistema.
+Primeri uporabe, ki so nastali za identifikacijo interakcije s sistemom, se lahko uporabijo za osnovo testiranja sistema.
 
 #### 2.4.2.1 Testni primeri, izpeljani iz diagrama zaporedja
 <img src="test3.png" >
@@ -148,7 +148,7 @@ Primeri politik testiranja:
 - **Sistemska dokumentacija** - *sami testi predstavljajo določeno obliko dokumentacije, ker opisujejo, kako naj bi program deloval*
 
 ### 3.2.1 Regresijsko testiranje
-**Regresijsko testiranje** je testiranje sistema, kjer se preveri, da vplejane spremembe niso *pokvarile* delovanje prej delujoče kode.
+**Regresijsko testiranje** je testiranje sistema, kjer se preveri, da vpeljane spremembe niso *pokvarile* delovanje prej delujoče kode.
 
 # 4 Testiranje izdaje
 **Testiranje izdaje** je proces testiranja določene izdaje sistema, ki je namenjen za uprabo zunaj razvojne skupine.
@@ -157,7 +157,7 @@ Primeri politik testiranja:
 Testiranje izdaje je določena oblika testiranja sistema, vendar obstajajo pomembne razlike:
 - za **testiranje izdaje** mora biti odgovorno **ločena skupina**, ki ni bila vključena v razvoj sistema.
 
-- **Testiranje sistema** s strani razvojne skupine se mora osredotočiti na **odkrivanje napak v sistemu**. Cilj **testiranja izdaje** pa je preveriti, ali **sistem izpolnjuje zahteve** in je dovolj dober za zunanjo uporabo (V&V)
+- **Testiranje sistema** s strani razvojne skupine se mora osredotočiti na **odkrivanje napak v sistemu**. Cilj **testiranja izdaje** pa je preveriti, ali **sistem izpolnjuje zahteve** in je dovolj dober za zunanjo uporabo (validacija)
 
 ## 4.2 Testiranje na podlagi zahtev
 **Testiranje, ki temelji na zahtevah**, vključuje preučevanje vsake zahteve in pripravo ustreznih testov
@@ -172,7 +172,7 @@ Testiranje izdaje je določena oblika testiranja sistema, vendar obstajajo pomem
 ## 4.4 Testiranje zmogljivosti
 **Testi zmogljivosti** običajno vključujejo množico testov, kjer se obremenitev počasi povečuje, dokler delovanje sistema ne postane nesprejemljivo.
 
-**Testiranje izjemninh situacij** je oblika testiranja zmogljivosti, kjer je sistem namerno preobremenjen in se poskuša doseči neustrezno zaupanje.
+**Testiranje izjemnih situacij** je oblika testiranja zmogljivosti, kjer je sistem namerno preobremenjen in se poskuša doseči neustrezno delovanje.
 
 # 5 Uporabniško testiranje
 **Uporabniško testiranje** je stopnja v procesu testiranja, kjer uporabniki ali naročniki zagotovijo vhodne podatke in nasvete o testiranju sistema.
@@ -191,10 +191,10 @@ Pri agilnih metodah je uporabnik oz. stranka del razvojne skupine in je odgovorn
 
 # 6 Zaključne ugotovitve
 - Testiranje lahko samo pomaga razkriti prisotnost napak v programu, ne more pa potrditi, da ni prisotnih napak.
-- Za razvojno testiranje je odgovorna ekipa za razvoj programske opreme. Ločena testna skupina pa je odgovorna za testiranje sistema, preden se ta izda stranki.
-- Razvojno testiranje vključuje: testiranje enot, kjer testiramo posamezne objekte in metode; testiranja komponent, kjer testiramo sorodne skupine objektov, in sistemsko testiranje, kjer testiramo delne ali popolne sisteme.
+- Za **razvojno testiranje** je odgovorna ekipa za razvoj programske opreme. Ločena testna skupina pa je odgovorna za **testiranje sistema**, preden se ta izda stranki.
+- **Razvojno testiranje** vključuje: testiranje enot, kjer testiramo posamezne objekte in metode; testiranja komponent, kjer testiramo sorodne skupine objektov, in sistemsko testiranje, kjer testiramo delne ali popolne sisteme.
 - Pri testiranju programske opreme morate poskusiti “razbiti” programsko opremo z uporabo izkušenj in smernic, tako da izberete testne primere, ki so v preteklosti bili učinkoviti pri odkrivanju napak v drugih sistemih.
 - Samodejne teste pišemo kadarkoli je mogoče. Takšne teste lahko samodejno izvaja program, ki se pokliče ob vsaki spremembi sistema.
-- TDD je pristop k razvoju, kjer so testi napisani pred kodo.
+- **TDD** je pristop k razvoju, kjer so testi napisani pred kodo.
 - Pri testiranju na podlagi scenarijev se pripravijo tipični scenariji uporabe, ki so osnova pri pripravi in izvedbi testnih primerov.
-- Test sprejemljivosti je vrsta uporabniškega testiranja, kjer se odloča, ali je programska oprema primerna za uporabo v produkcijskem okolju.
+- **Test sprejemljivosti** je vrsta uporabniškega testiranja, kjer se odloča, ali je programska oprema primerna za uporabo v produkcijskem okolju.

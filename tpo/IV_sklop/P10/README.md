@@ -2,15 +2,15 @@
 # 1 Neprekinjena integracija
 **Neprekinjena integracija (CI)** je dnevni prenos nove, dopolnjene izvorne kode v skupni repozirotij za zgodnje ugotavljanje napak.
 
-v željenem branchu maš na rootu mapco `.github/workflows` kjer imaš datoteko `CI.yml`, ki zgleda približno tkole:
+Na željenem branchu imaš na rootu mapo `.github/workflows` kjer se nahaja datoteka `CI.yml`, ki izgleda približno takole:
 
 ```yaml
-name: Neprekinjena integracija
+name: Neprekinjena integracija # Ime delovnega toka
 
-on: # Kdaj se začne izvajanje delovnega toka?
-  push:
-    branches:
-      - testno-okolje # Ob vsaki uveljavitvi na veji testno-okolje.
+on: # Kdaj se začne izvajanje delovnega toka? (Akcije ki sprožijo izvajanje)
+  push: # Ob uveljavitvi
+    branches: # Na veji
+      - testno-okolje # testno-okolje.
     paths-ignore:
       - "README.md" # Ignoriramo spremembe v dokumentaciji.
 
@@ -72,3 +72,4 @@ jobs:
           heroku_email: ${{ secrets.HEROKU_EMAIL }}
           branch: produkcijsko-okolje
 ```
+Zaščitene okoljske spremenljivke (*secrets*) se nastavi v GitHub repozitoriju: Settings → Secrets
