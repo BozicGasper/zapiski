@@ -1,4 +1,4 @@
-# LP5 Načrt sistema in njegove arhitekture
+# V5 Načrt sistema in njegove arhitekture
 # 1 Navodila
 Sistem smo modelirali iz treh vidikov:
 - **Zunanji vidik** - *meje sistema in kako sistem v procesu deluje z ostalimi sistemi v okolju*
@@ -24,9 +24,13 @@ Diagram zaporedja:
 - operacije so nadzorno vidne, ravno tako parametri in tipi rezultatov
 - uporaben je za prikaz velikega števila objektov znotraj diagrama uporabe in za modeliranje bolj zapletenih scenarijev
 
-blok **loop** označuje zanko
+Blok **loop** označuje zanko
 
-blok **opt** označuje opcijsko izvedbo
+Blok **opt** označuje opcijsko izvedbo
+
+Polne puščice (trikotniki) označujejo sinhrone klice, prazne (samo dve črti) pa asinhrone klice.
+
+Črtkane črte označujejo odgovore.
 
 Imamo preprost diagarm primerov uporabe:
 <img src="dpu.png" >
