@@ -1,15 +1,15 @@
-# P6 Načrtoanje sistema
+# P6 Načrtovanje sistema
 # 1. Uvod
 **Načrtovanje sistema** je proces razvijanja abstraktnih modelov sistema, kjer vsak načrt predstavlja drugačen pogled ali perspektivo tega sistema.
 
 Pri načrtovanju sistema se uporablja izbrano grafično notacijo, ki skoraj vedno temelji na zapisu v **jeziku UML *(Unified Modeling Language)***.
 
 ## 1.1 Obstoječi in novi sistemski načrt
-**Načrt obstoječega sistema** se uporablja pri zajemu zahtev in pomaga pojasniti, kaj obstoječi sistem izvaja in se lahko uporagblja kot podlaga za razpravo o njegovih prednostih in slabostih.
+**Načrt obstoječega sistema** se uporablja pri zajemu zahtev in pomaga pojasniti, kaj obstoječi sistem izvaja in se lahko uporablja kot podlaga za razpravo o njegovih prednostih in slabostih.
 
 **Načrt novega sistema** se uporablja pri zajemu zahtev kot pomoč pri razlagi predlaganih zahtev drugim deležnikom sistema.
 
-## 1.2 Vdiki sistema
+## 1.2 Vidiki sistema
 - **Zunanji vidik** - načrtujemo kontekst oz. okolje sistema
 - **Vidik sodelovanja** - načrtujemo interakcije med sistemom in njegovim okoljem ali med komponentami sistema
 - **Strukturni vidik** - načrtujemo organizacijo sistema ali strukturo podatkov, ki jih sistem obdeluje
@@ -22,13 +22,13 @@ Pri načrtovanju sistema se uporablja izbrano grafično notacijo, ki skoraj vedn
 - **Razredni diagrami** - prikazujejo razrede objektov v sistemu in povezave med temi razredi
 - **Diagrami stanj** - prikazujejo, kako se sistem odziva na notranje in zunanje dogodke
 
-## 1.4 Uporaba gradičnih načrtov
+## 1.4 Uporaba grafičnih načrtov
 Grafični načrti se uporabljajo kot:
 - **Sredstvo za lažjo razpravo o obstoječem ali predlaganem sistemu**, kjer so nepopolni ali nepravilni modeli sprejemljivi, saj je njihova vloga predvsem v podpori razprave.
 - **Način za dokumentiranje obstoječega sistema**, kjer morajo načrti natančno predstavljati sistem, ni pa nujno, da so popolni
 - **Podroben opis sistema**, ki ga je mogoče uporabiti za generiranje implementacije sistema, kjer mora biti načrt pravilen in popoln
 
-# 2 Načrt konteksta
+# 2. Načrt konteksta
 Načrt konteksta se uporablja za ponazoritev operativnega konteksta sistema - prikazuje, **kaj se nahaja zunaj meja sistema**.
 
 ## 2.1 Meje sistema
@@ -43,7 +43,7 @@ Meje sistema so določene tako, da opredelijo, kaj je znotraj in kaj zunaj siste
 ### 2.2.1 Načrt procesa neprostovoljnega pridržanja v sistemu Mentcare
 <img src="np.png">
 
-# 3 Načrt sodelovanja
+# 3. Načrt sodelovanja
 Načrtovanje **interakcije z uporabniki** je pomembno, saj pomaga identificirati uporabniške zahteve.
 
 Načrtovanje **interakcije med sistemi** poudarja težave s komunikacijo, ki se lahko pojavijo.
@@ -65,13 +65,13 @@ Vsak primer uporabe predstavlja diskretno nalogo, ki vključuje zunanjo interakc
 ## 3.2 Načrtovanje z diagrami zaporedja
 Diagrami zaporedja prikazujejo zaporedje medsebojnih interackij, ki se odvijajo med posameznim primerom uporabe ali primerkom primera uporabe.
 
-### 3.2.1 Diagram zaporedja za primer uporae ogled osebnih podatkov sistema Mentcare
+### 3.2.1 Diagram zaporedja za primer uporabe ogled osebnih podatkov sistema Mentcare
 <img src="dz1.png">
 
 ### 3.2.2 Diagram zaporedja za primer uporabe prenosa podatkov
 <img src="dz2.png">
 
-# 4 Strukturni načrt
+# 4. Strukturni načrt
 Strukturni načrt prikazuje **organizacijo sistema** v smislu **komponent**, ki ta sistem sestavljajo, in njihovih **medsebojnih razmerij**.
 
 Strukturni načrti so lahko:
@@ -92,6 +92,9 @@ Strukturni načrti so lahko:
 
 ### 4.1.2 Posploševanje
 **Posploševanje** oz. **generalizacija** je preprosta tehnika, ki jo uporabljamo za obvladovanje kompleksnosti.
+
+> V objektno usmerjenih jezikih, kot je npr. Java, se posploševanje izvaja z uporabo mehanizmov dedovanja razredov.
+
 <img src="posplositev.png">
 
 ### 4.1.3 Združevanje
@@ -101,12 +104,12 @@ Načrt z uporabo **združevanja** oz. **agregacije** prikazuje, kako je razred s
 
 <img src="zdruzevanje.png">
 
-# 5 Načrt vedenja
+# 5. Načrt vedenja
 **Načrt vedenja** predstavlja model dinamičnega obnašanja sistema med izvajanjem.
 
-> prikazuje, kaj se zgodi ali kaj naj  bi se zgodilo, ko se sitem odziva na *spodbude* iz svojega okolja
+> Prikazuje, kaj se zgodi ali kaj naj  bi se zgodilo, ko se sistem odziva na *spodbude* iz svojega okolja
 
-poznamo dve vrsti *spodbud*:
+Poznamo dve vrsti *spodbud*:
 - na vhod sistema pridejo **podatki**, ki jih mora sistem obdelati
 - zgodi se določen **dogodek**, ki sproži procesiranje sistema
 
@@ -131,11 +134,11 @@ Načrt končnih avtomatov prikazuje **sistemska stanja** v obliki **vozlišč** 
 
 <img src="ds3.png">
 
-# 6 Načrtno usmerjena izdelava programske opreme
+# 6. Načrtno usmerjena izdelava programske opreme
 **Načrtno usmerjena izdelava programske opreme oz. MDE (*Model-Driven Engineering*)** je pristop k razvoju programske opreme, kjer so namesto programov **rezultat** razvojnega procesa **načrti** oz. **modeli**.
 
 ## 6.1 Uporaba načrtno usmerjene izdelave programske opreme
-**Prendnosti**:
+**Prednosti**:
 - omogoča obravnavo sistema na višji ravni abstrakcije
 - samodejno generiranje kode pomeni, da je prilagoditev sistema novi platformi cenejša
 
@@ -168,17 +171,17 @@ Za pretvorbo iz modelov iz ene ravni v drugo je potrebna **podpora specializiran
 
 <div style="color:crimson">
 
-Za **sisteme z dolgo življensko dobo**, ki so razviti z uporabo MDA, podjetja zelo nerada razvijajo lastna orodja ali se zanašajo na manjđa podejtja, ki lahko v tem obdobju prenehajo delovati.
+Za **sisteme z dolgo življensko dobo**, ki so razviti z uporabo MDA, podjetja zelo nerada razvijajo lastna orodja ali se zanašajo na manjša podejtja, ki lahko v tem obdobju prenehajo delovati.
 
 </div>
 
-Pri najbolj kompleksnih sistemih **implementacija ni največja težava**, ampak je veliko bolj problematilno:
+Pri najbolj kompleksnih sistemih **implementacija ni največja težava**, ampak je veliko bolj problematično:
 - zajem zahtev
 - varnost in zanesljivost
 - integracija z obstoječimi sistemi
 - testiranje
 
-# 7 Zaključne ugotovitve
+# 7. Zaključne ugotovitve
 - **Model** je abstrakten pogled na sistem, ki ne upošteva vseh sistemskih podrobnosti. S pomočjo dodatnih modelov načrta lahko prikažemo kontekst sistema, sodelovanje, strukturo in vedênje.
 - **Načrt konteksta** prikazuje, kako je načrtovani sistem postavljen v okolje z drugimi sistemi in procesi.
 - **Diagrami primerov uporabe** in **diagrami zaporedja** se uporabljajo za opis sodelovanja med uporabniki in sistemi v načrtovanem sistemu. Primeri uporabe opisujejo interakcije med sistemom in zunanjimi akterji, diagrami zaporedja jim dodajo še več informacij tako, da prikažejo interakcije med objekti sistema.
