@@ -16,7 +16,7 @@
 
 <img src="v1.png" >
 
-## 1.3 Varnost infrastrukture v aplikaciji
+## 1.3 Varnost infrastrukture in aplikacij
 Z **varnostjo aplikacij** se ukvarja **programsko inženirstvo**, kjer mora biti **sistem zasnovan** tako, da je odporen proti napadom.
 
 **Varnost infrastrukture** je v domeni **upravljanja sistemov**, kjer je treba **infrastrukturo nastaviti** tako, da je odporna proti napadom.
@@ -27,7 +27,7 @@ Upravljanje varnosti sistema vsebuje številne aktivnosti:
 
 - pri **uvajanju** in **vzdrževanju programske opreme** gre za nameščanje programske in vmesne programske opreme ter konfiguriranje teh sistemov, da se izognemo ranljivostim.
 
-- **Nadzor napadov, odrkivanje** in **obnovitev** predstavlja spremljanje sistema proti nepooblaščenemu dostopu, oblikovanje strategij za odpornost do napadov in razvoj strategij za izdelavo varnostnih kopij in obnovitev
+- **Nadzor napadov, odkrivanje** in **obnovitev** predstavlja spremljanje sistema proti nepooblaščenemu dostopu, oblikovanje strategij za odpornost do napadov in razvoj strategij za izdelavo varnostnih kopij in obnovitev
 
 ## 1.5 Operativna varnost
 Uporabniki včasih izvajajo nevarna dejanja z namenom olajšanja svojega dela, zato vedno obstaja **kompromis** med **varnostjo** in **učinkovitostjo sistema**.
@@ -52,7 +52,7 @@ Uporabniki včasih izvajajo nevarna dejanja z namenom olajšanja svojega dela, z
 
 ## 2.5 Zagotavljanje varnosti
 - **Izogibanje ranljivostim** - *sistem je zasnovan tako, da se ranljivosti ne pojavijo*
-- **Odkrivanje in odstranjevanje podatkov** - *sistem je zasnovan tako, da se napadi na ranljivosti ne odkrijejo in nevtralizirajo, preden povzročijo izpostavljenost.*
+- **Odkrivanje in odstranjevanje napadov** - *sistem je zasnovan tako, da se napadi na ranljivosti odkrijejo in nevtralizirajo, preden povzročijo izpostavljenost.*
 - **Omejitev izpostavljenosti in predelava** - *sistem je zasnovan tako, da so negativne posledice uspešnega napada čim manjše*
 
 ## 2.6 Varnost in zagotovljivost
@@ -157,7 +157,7 @@ Na stopnji načrtovanja imamo informacije o predstavitvi in porazdelitvi informa
 <img src="3.png" >
 
 ## 5.4 Zasnova arhitekture
-upoštevamo dva vidika:
+Upoštevamo dva vidika:
 - **Zaščita** - *kako organizirati sistem, da bodo kritična sredstva zaščitena pred zunanjimi napadi*
 - **Porazdelitev** - *kako so sistemska sredstva porazdeljena, da so učinki uspešnega napada čim manjši*
 
@@ -172,7 +172,7 @@ Porazdelitev sistemskih sredstev pomeni, da napadi na en sistem ne vodijo nujno 
 <img src="4.png" >
 
 # 6 Implementacija varnih sistemov
-pri implementaciji sta pomembna 2 vidika:
+Pri implementaciji sta pomembna 2 vidika:
 - **Ranljivosti so pogosto značilne za izbran programski jezik**
 - **Varnostne ranljivosti so tesno povezane z zanesljivostjo programa**
 
