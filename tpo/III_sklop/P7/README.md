@@ -25,13 +25,13 @@ Za dokumentiranje arhitekture programske opreme se najbolj pogosto uporabljajo e
 - **način dokumentiranja načrtovane arhitekture** - *cilj je izdelati popoln model sistema, ki prikazuje različne komponente sistema, njihove vmesnike in njihove medsebojne povezave*
 
 # 2. Odločitve pri zasnovi arhitekture
-Načrtovanje arhitekture je **ustvarjalni proces**, zato se postopek razlikuje gelde na vrsto sistema, ki se razvija.
+Načrtovanje arhitekture je **ustvarjalni proces**, zato se postopek razlikuje glede na vrsto sistema, ki se razvija.
 <img src="odlocitve.png" hidden>
 
 ## 2.1 Ponovna uporaba arhitekture
 - Sistemi v isti problemski domeni imajo pogosto **podobno arhitekturo**, ki doraža domenske koncepte.
 
-- produktna linija aplikacij je zgrajena okrog jedrne arhitekture z razlićicami, ki zadovoljujejo določene zahteve strank.
+- Produktna linija aplikacij je zgrajena okrog jedrne arhitekture z različicami, ki zadovoljujejo določene zahteve strank.
 
 - Arhitektura sistema je lahko zasnovana okoli enega od več arhitekturnih vzorcev ali stilov. Le-ti zajemajo bistvo arhitekture in jih lahko uporabimo na različne namene
 
@@ -39,12 +39,12 @@ Načrtovanje arhitekture je **ustvarjalni proces**, zato se postopek razlikuje g
 - **Zmogljivost** - *lokalizacija kritičnih operacij, zmanjševanje medsebjne komunikacije, uporaba splošnih in ne podrobnih komponent.*
 - **Varnost** - *uporaba večplastne arhitekture, lokaliziranje varnostno kritičnih funkcij v majhnem številu podsistemov.*
 - **Razpoložljivost** - *vključevanje redundantnih komponent in mehanizmov za toleranco pri okvarah*
-- **Vzdržljivost** - *uporaba zamelnjivihkomponent na nizki ravni podrobnosti*
+- **Vzdržljivost** - *uporaba zamenljivih komponent na nizki ravni podrobnosti*
 
-# <div id="poglediNaZasnovoArhitekture"> 3. Pogledi na zasvnovo arhitekture </div>
+# <div id="poglediNaZasnovoArhitekture"> 3. Pogledi na zasnovo arhitekture </div>
 Sprašujemo se:
 - kateri **pogledi** ali **perspektive** so **uporabne** pri oblikovanju in dokumentiranju sistema?
-- ketere **zapise** oz. **notacije** je treba uporabiti za opis arhitekturnih modelov?
+- katere **zapise** oz. **notacije** je treba uporabiti za opis arhitekturnih modelov?
 
 Vsak akhitekturni vzorec **prikazuje samo en pogled** ali perspektivno sistema, in sicer:
 - kako je sistem razčlenjen na module
@@ -68,7 +68,7 @@ pri načrtovanju in dokumentiranju je treba po navadi **predstaviti več pogledo
 > koristen za sistemske inženirje, ki načrtujejo namestitev sistema
 
 ## 3.1 Predstavitev pogledov na arhitekturo
-Ker z UML ne podpira abstrakcij, primernih za opis sistema na visoki ravni, so nastali opisni jeziki arhitekture (**ADL**), ki pa se ne uporabljajo pogosto.
+Ker UML ne podpira abstrakcij, primernih za opis sistema na visoki ravni, so nastali opisni jeziki arhitekture (**ADL**), ki pa se ne uporabljajo pogosto.
 
 # <div id="arhitekturniVzorci"> 4. Arhitekturni vzorci </div>
 **Vzorec** je sredstvo za predstavitev, izmenjavo in ponovno uporabo znanja.
@@ -87,7 +87,7 @@ Ker z UML ne podpira abstrakcij, primernih za opis sistema na visoki ravni, so n
 ## 4.3 Arhitektura repozitorija
 Podsistemi morajo med seboj izmenjavati podatke, kar lahko dosežemo na dva načina:
 - Skupni podatki se hranijo v **osrednji shrambi podatkov** ali **repozitoriju** in do njih lahko dostopajo vsi podsistemi
-- Vsak podsistem vzdržuje svojo **lastno bato podatkov** in podatke izrecno posreduje drugim podsistemom
+- Vsak podsistem vzdržuje svojo **lastno bazo podatkov** in podatke izrecno posreduje drugim podsistemom
 
 <img src="repo.png">
 
@@ -108,7 +108,7 @@ Pri **arhitekturi cev in filter** funckionalne transformacije obdelujejo svoje v
 ## 5.1 Uporaba arhitektur aplikacij
 - kot izhodišče za zasnovo arhitekture
 - kot kontrolni sistem pri načrtovanju
-- kot način organiziranje dela razvojne skupine
+- kot način organiziranja dela razvojne skupine
 - kot sredstvo za ocenjevanje komponent za ponovno uporabo
 - kot slovar pri pogovoru o vrstah aplikacij
 
@@ -126,7 +126,7 @@ Pri **arhitekturi cev in filter** funckionalne transformacije obdelujejo svoje v
 
 z vidika **uporabnika** velja:
 
-*"**Transakcija** je vsako skladno zaporedje operacij, ki izpolnjuje cilj (npr. poišči čase odhodov letal iz ljubljane do Madrida)*
+*"**Transakcija** je vsako skladno zaporedje operacij, ki izpolnjuje cilj (npr. poišči čase odhodov letal iz Ljubljane do Madrida)*
 
 <img src="trr.png">
 
@@ -148,7 +148,7 @@ Spletni sistemi so pogosto implementirani v obliki večplastne odjemalec/strežn
 <img src="sis.png">
 
 ## 5.6 Sistem za obdelavo jezika
-**sistem za obdelavo jezika** na vhodu sprejme naravni ali umetni jezik in to pretvori v drugo predsatitev tega jezika.
+**Sistem za obdelavo jezika** na vhodu sprejme naravni ali umetni jezik in to pretvori v drugo predstavitev tega jezika.
 
 <img src="jezik.png">
 
@@ -163,7 +163,21 @@ Komponente prevajalnika, ki jih uporabimo v obliki arhitekture repozitorija ali 
 
 <img src="prevod.png">
 
+# 6. Zaključne ugotovitve
 
+- **Arhitektura programske opreme** opisuje organizacijo sistema programske opreme.  
+
+- **Odločitve pri zasnovi arhitekture** so odločitve o vrsti aplikacije, porazdelitvi sistema, uporabljenih arhitekturnih slogih itd.  
+
+- Arhitektura se lahko **dokumentira iz več različnih pogledov**, kot so logični ali fizični pogled in pogled razvoja ali procesa.  
+
+- S pomočjo **arhitekturnih vzorcev** ponovno uporabimo znanje o generičnih sistemskih arhitekturah. Arhitekturo opisujejo in pojasnjujejo, kdaj jo lahko uporabimo, ter izpostavijo njene prednosti in slabosti.  
+
+- **Model arhitekture aplikacijskih sistemov** nam pomaga razumeti in primerjati aplikacije, preveriti skladnost aplikacijskega sistema in ovrednotiti obsežne komponente z vidika ponovne uporabe.  
+
+- **Sistem za obdelavo transakcij** je interaktivni sistem, ki omogoča dostop do podatkov v podatkovni bazi in njihovo spreminjanje s strani številnih uporabnikov.  
+
+- **Sistem za obdelavo jezika** se uporablja za prevajanje besedila iz enega jezika v drugega in za izvajanje navodil, podanih v jeziku vnosa. Vključuje prevajalnik in abstraktni stroj, ki izvrši ustvarjeni jezik.
 
 
 

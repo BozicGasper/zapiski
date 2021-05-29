@@ -45,7 +45,7 @@ Podprti vmesniki moche so:
 - require
 - ...
 
-Tukaj si bomo pogledal BDD, kjer se posamezen test specificira na naslednji način:
+Tukaj si bomo pogledali BDD, kjer se posamezen test specificira na naslednji način:
 ```javascript
 describe("naslove", function(){ ... })
 ```
@@ -136,7 +136,7 @@ Primeri trditev v Chai:
 ```
 
 # 5 Namestitev orodja Selenium za izvajanje testov
-Slenium je odprtokodno orodje za testiranje, ki se uporablja za avtomatizacijo testov, izvedenih na različnih spletnih brskalnikh.
+Selenium je odprtokodno orodje za testiranje, ki se uporablja za avtomatizacijo testov, izvedenih na različnih spletnih brskalnikh.
 
 ```bash
 $ npm install selenium-webdriver
@@ -150,7 +150,7 @@ $ npm install selenium-webdriver
 }
 ```
 
-Pri seleniumu ni dost da mamo samo osnoven driver, ampak rabimo posebaj iz njihove spletne strano potegnit dol driverje za tiste brskalnike, za katere želimo testirat zadevo.
+Pri seleniumu ni dovolj da imamo samo osnovni driver, ampak potrebujemo iz njihove spletne strani pridobiti driverje za tiste brskalnike, na katerih želimo testirati.
 
 ```javascript
 // uporabimo <webdriver.chrome.driver system property>
@@ -162,7 +162,7 @@ let driver = await new Builder().forBrowser("firefox")
                  .build();
 ```
 
-**pathToDriver** more kazat na executable datoteko, ki smo jo potegnili dol iz selenium official strani.
+**pathToDriver** mora kazati na executable datoteko, ki smo jo potegnili dol iz selenium official strani.
 
 Inicializacija Selenium testa za google.com (to stvar spišemo v test.js)
 
