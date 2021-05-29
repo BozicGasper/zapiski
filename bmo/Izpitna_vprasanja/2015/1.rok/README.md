@@ -11,10 +11,10 @@ Predalčkasta aloha je 2x bolj učinkovita, saj v primeru trka pokvari le paket 
 Z mehanizmom RTS (Request to send) in CTS (Clear to send). Naprava pošlje RTS dostopni točki, katera odgovori z CTS (v sporočilu je določen čas v katerem lahko oddaja naprava).
 
 ### 4. Kakšne so bistvene izboljšave pri standardu 802.11n v primerjavi s starejšimi standardi?
-Omogoča večje hitrosti prenosa,  Izboljšan doseg (dvakrat boljši doseg v prostoru, trikrat izven prostorov), Povečana zanesljivost prenosa podatkov
-Omogoča uporabo več anten (MIMO), kar omogoči: Združevanje signalov, Prostorsko kodiranje, Prenos z več snopi, Usmerjanje radijskega snopa
-Hkrati lahko uporablja dva kanala (40 MHz)
-Krajši interval guard
+- Omogoča večje hitrosti prenosa,  Izboljšan doseg (dvakrat boljši doseg v prostoru, trikrat izven prostorov), Povečana zanesljivost prenosa podatkov
+- Omogoča uporabo več anten (MIMO), kar omogoči: Združevanje signalov, Prostorsko kodiranje, Prenos z več snopi, Usmerjanje radijskega snopa
+- Hkrati lahko uporablja dva kanala (40 MHz)
+- Krajši interval guard
 
 ### 5. Ali so vsi paketi pri tehnologiji bluetooth enako dolgi?
 Ne, niso. Paketi s številkami 3 in 5 so daljši paketi in zasedajo 3 ali 5 časovnih predalčkov (625 μs): Kontrolni paketi so: ID, Null, Poll, FHS; Podatkovni paketi DM1, DH1, DM3, DH3, DM5, DH5; Paketi za prenos zvoka HV1, HV2, HV3 in DV (hibridni prenos)
