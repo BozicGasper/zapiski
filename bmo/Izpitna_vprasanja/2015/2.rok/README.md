@@ -1,4 +1,4 @@
-# Pisni izpit 7.7.2015
+# Pisni izpit 7.7.2015 (2.rok)
 ### 1. Na kakšne načine se lahko izvede uporaba skupnega medija?
 - **dostop brez trkov**, kjer se naprave **med seboj dogovorijo** o načinu dostopa (Token Bus). Obstaja tudi način kjer **ena izmed naprav koordinira** dostop do medija (GSM).
 - **dostop s trki**, kjer poteka **reševanje trkov** (Tree, Windows,...) in se uporablja naključni dostop do medija (Aloha, CSMA(CD/CA), ...)
@@ -56,3 +56,4 @@ Višje frekvence so primerne za komunikacijo med točkama, kjer ni ovir (npr. 5G
 
 ### 10. Kako je izvedeno prehajanje terminalov pri standardu LTE za skupinski prenos podatkov (npr. TV programov)?
 Uporablja se ista frekvenca in **oddajniki so med seboj sinhronizirani** spomočjo **GPS**. Terminal tako prejeti signal z dveh ali več baznih postaj obravnava kot **signal iz** **enega vira**, ki je potoval po različnih poteh in zato so **zakasnitve** **različne**.
+
